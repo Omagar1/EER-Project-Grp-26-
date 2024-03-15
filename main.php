@@ -23,6 +23,7 @@ if (isset($_POST['loginSubmit']))
         $msg2 = "Passwords do not match.";
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +31,13 @@ if (isset($_POST['loginSubmit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Create Account</title>
 </head>
 <body>
+
+<div id="form-container">
+<div id="user-form">
     <h1>Login</h1>
     <form action="main.php" method="post">
         <label for="loginEmail">Email:</label><br>
@@ -44,7 +49,11 @@ if (isset($_POST['loginSubmit']))
         <input type="submit" name="loginSubmit"><br>
         <div class ="errorMessage"><?php echo $msg ?></div>
     </form>
+</div>
+</div>
 
+<div id="form-container">
+<div id="user-form">
     <h2>Create Account</h2>
     <form action="main.php" method="post">
         <label for="createAccountEmail">Email:</label><br>
@@ -59,6 +68,8 @@ if (isset($_POST['loginSubmit']))
         <input type="submit" name="createAccountSubmit"><br>
         <div class="errorMessage"><?php echo $msg2 ?></div>
     </form>
+</div>
+</div>
 
 </body>
 </html>
