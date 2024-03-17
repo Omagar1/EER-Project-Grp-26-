@@ -24,6 +24,7 @@ function createAccount($conn, $email, $hashPassword)
         } else
         {
             $stmt1->execute();
+            header("Location: accountCreated.php");
             return "Account created!";
         }
     } catch (PDOException $e)
