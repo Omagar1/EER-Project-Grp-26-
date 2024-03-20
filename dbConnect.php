@@ -1,5 +1,5 @@
 <?php
-$servername = "eer-sever";
+$servername = "localhost";//eer-sever
 $username = "crrzbzscbr"; 
 $password = "IS5YSO8T40G6780X$";
 $dbname = "eer-db"; 
