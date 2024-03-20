@@ -4,10 +4,42 @@ session_start();
 require_once "dbConnect.php";
 require_once "createAccount.php";
 
+function sendEmail()
+{   
+    
+    $otp_data = isset($_SESSION['otp_data']) ? $_SESSION['otp_data'] : null;
+
+    if ($otp_data) {
+        $otp = $otp_data['otp'];
+    } else {
+        echo 'Error: OTP Missing or Invalid';
+        return;
+    }
+
+    $email = $_POST['signUpEmail'];
+    $subject = "Email Verification";
+    $body = "Please Click the Link Below to Verify Your Account\n"
+        . "http://localhost:8080/MailTest/EER-Project-Grp-26--main/verifyOTP.php?otp=" . $otp;
+         
+    if (mail($email, $subject, $body)) {
+        echo "Email successfully sent to $email...";
+    } else {
+        echo "Email sending failed...";
+    }
+}
 $msg = "";
 
 if (isset($_POST['signUpSubmit']))
-{
+{    
+     $email = $_POST['signUpEmail'];
+
+    $otp = rand(100000, 999999);
+    $_SESSION['otp_data'] = array(
+    'otp' => $otp,
+    'timestamp' => time()
+);
+    sendEmail();
+    
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
         $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']));
