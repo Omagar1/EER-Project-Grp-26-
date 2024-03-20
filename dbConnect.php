@@ -1,5 +1,5 @@
 <?php
-$servername = "127.0.0.1";//eer-sever
+$servername = "eer-sever.database.windows.net";//eer-sever
 $username = "crrzbzscbr"; 
 $password = "IS5YSO8T40G6780X$";
 $dbname = "eer-db"; 
