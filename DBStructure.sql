@@ -41,3 +41,4 @@ CREATE TABLE recommendation (
     `carbonEmistionsImpact` VARCHAR(255) NOT NULL, 
     `recomendedChanges` VARCHAR(255) NOT NULL
 );
+ 
