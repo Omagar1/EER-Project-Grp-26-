@@ -1,5 +1,5 @@
 <?php
-$servername = "etcp:eer-sever.database.windows.net,1433";//eer-sever
+$servername = "tcp:eer-sever.database.windows.net,1433";//eer-sever
 $username = "EER-admin"; //crrzbzscbr
 $password = "IS5YSO8T40G6780X$";
 $dbname = "eer-db"; 
