@@ -23,9 +23,13 @@ if (isset($_POST['signUpSubmit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Sign Up</title>
 </head>
 <body>
+    
+<div id="form-container">
+    <div id="user-form">
     <h2>Create Account</h2>
         <form action="signUp.php" method="post">
             <label for="signUpEmail">Email:</label><br>
@@ -40,5 +44,7 @@ if (isset($_POST['signUpSubmit']))
             <input type="submit" name="signUpSubmit"><br>
             <div class="errorMessage"><?php echo $msg ?></div>
         </form>
+</div>
+</div>
 </body>
 </html>
