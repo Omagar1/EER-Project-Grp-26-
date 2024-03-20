@@ -1,7 +1,7 @@
 <?php
 $servername = "tcp:eer-sever.database.windows.net,1433";//eer-sever
 $username = "EER-admin"; //crrzbzscbr
-$password = "IS5YSO8T40G6780X$";
+$password = "ER4sever!"; //ER4sever!
 $dbname = "eer-db"; 
 //sqlsrv:server = tcp:eer-sever.database.windows.net,1433
 //$conn = new PDO("sqlsrv:server = tcp:eer-sever.database.windows.net,1433; Database = eer-db", "EER-admin", "{your_password_here}");
