@@ -76,6 +76,7 @@ if (isset($_POST['signUpSubmit']))
             <input type="submit" name="signUpSubmit"><br>
             <div class="errorMessage"><?php echo $msg ?></div>
         </form>
+        <a href="index.php">Back</a>
 </div>
 </div>
 </body>
