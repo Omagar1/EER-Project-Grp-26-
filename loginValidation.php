@@ -14,6 +14,7 @@ function loginValidation($conn, $email, $hashPassWord) {
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result)
+        // checks if $sql returns any results
         {
             header("Location: loggedIn.php");
             exit();
