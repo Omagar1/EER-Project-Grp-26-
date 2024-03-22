@@ -23,11 +23,11 @@ CREATE TABLE property (
     reportIssueDate DATE NOT NULL, -- Presumptive
     certificateNumber VARCHAR NOT NULL -- Presumptive
 );
-DROP TABLE IF EXISTS equation;
-CREATE TABLE equation (
-    equationID INTEGER PRIMARY KEY IDENTITY(1,1),
-    equation VARCHAR NOT NULL
-);
+-- DROP TABLE IF EXISTS equation;
+-- CREATE TABLE equation (
+--     equationID INTEGER PRIMARY KEY IDENTITY(1,1),
+--     equation VARCHAR NOT NULL
+-- );
 DROP TABLE IF EXISTS userSavedProperty;
 CREATE TABLE userSavedProperty (
     ID INTEGER PRIMARY KEY IDENTITY(1,1),
