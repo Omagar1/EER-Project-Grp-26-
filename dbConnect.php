@@ -1,5 +1,5 @@
 <?php
-echo "why?"; //test
+//echo "why?"; //test
 $servername = "tcp:eer-sever.database.windows.net,1433";//eer-sever
 $username = "EER-admin"; //crrzbzscbr
 $password = "ER4sever!"; //ER4sever!
@@ -12,6 +12,7 @@ try {
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   //echo "Connected successfully </br>"; //test
 } catch(PDOException $e) {
-  echo $e;
+  echo "Error: " . $e; // dispable after development
+  echo "Connection failed"; 
 }
 ?>

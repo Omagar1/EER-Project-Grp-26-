@@ -3,13 +3,13 @@ DROP TABLE IF EXISTS account;
 CREATE TABLE account (
     accountID INTEGER PRIMARY KEY IDENTITY(1,1),
     emailAddress VARCHAR NOT NULL,
-    verifyEmail BOOLEAN NOT NULL DEFAULT 0,
+    verifyEmail BIT NOT NULL DEFAULT 0,
     emailChanged DATETIME NOT NULL, -- when first created is the same time as date created
     emailChangedBy INTEGER NOT NULL, -- foreign key refference account ID
     password VARCHAR NOT NULL,
     dateCreated DATE NOT NULL,
     role VARCHAR NOT NULL,
-    active BOOLEAN NOT NULL DEFAULT 1
+    active BIT NOT NULL DEFAULT 1
 );
 DROP TABLE IF EXISTS property;
 CREATE TABLE property (
