@@ -8,8 +8,8 @@ $dbname = "eer-db";
 //$conn = new PDO("sqlsrv:server = tcp:eer-sever.database.windows.net,1433; Database = eer-db", "EER-admin", "{your_password_here}");
 try {
   $conn = new PDO("sqlsrv:server=$servername; Database=$dbname;", $username, $password, array(
-    PDO::ATTR_TIMEOUT => 5, // in seconds
-    //PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    PDO::ATTR_TIMEOUT => 5
+    
 ));
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
