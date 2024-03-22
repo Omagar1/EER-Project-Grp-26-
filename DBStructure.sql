@@ -2,13 +2,13 @@
 DROP TABLE IF EXISTS account;
 CREATE TABLE account (
     accountID INTEGER PRIMARY KEY IDENTITY(1,1),
-    emailAddress VARCHAR NOT NULL,
+    emailAddress VARCHAR(255) NOT NULL,
     verifyEmail BIT NOT NULL DEFAULT 0,
     emailChanged DATETIME NOT NULL, -- when first created is the same time as date created
     emailChangedBy INTEGER NOT NULL, -- foreign key refference account ID
-    password VARCHAR NOT NULL,
+    password VARCHAR(255) NOT NULL,
     dateCreated DATE NOT NULL,
-    role VARCHAR NOT NULL,
+    role VARCHAR(255) NOT NULL,
     active BIT NOT NULL DEFAULT 1
 );
 DROP TABLE IF EXISTS property;
@@ -16,12 +16,12 @@ CREATE TABLE property (
     propertyID INTEGER PRIMARY KEY IDENTITY(1,1),
     ownerID INTEGER NOT NULL, -- foreign key refference account ID
     EER CHAR NOT NULL, 
-    postcode VARCHAR NOT NULL, -- Presumptive
-    address VARCHAR NOT NULL, -- Presumptive
+    postcode VARCHAR(255) NOT NULL, -- Presumptive
+    address VARCHAR(255) NOT NULL, -- Presumptive
     addressChanged DATETIME NOT NULL, -- when first created is the same time as date created
     postcodeChangedBy INTEGER NOT NULL, -- foreign key refference account ID
     reportIssueDate DATE NOT NULL, -- Presumptive
-    certificateNumber VARCHAR NOT NULL -- Presumptive
+    certificateNumber VARCHAR(255) NOT NULL -- Presumptive
 );
 DROP TABLE IF EXISTS equation;
 CREATE TABLE equation (
@@ -39,6 +39,6 @@ CREATE TABLE recommendation (
     recommendationID INTEGER PRIMARY KEY IDENTITY(1,1), 
     propertyID INTEGER NOT NULL, -- foreign key refference property ID 
     carbonEmistionsImpact VARCHAR NOT NULL, 
-    recomendedChanges VARCHAR NOT NULL
+    recomendedChanges VARCHAR(255) NOT NULL
 );
  
