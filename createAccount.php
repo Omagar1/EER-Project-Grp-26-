@@ -31,5 +31,5 @@ function createAccount($conn, $email, $hashPassword)
     {
         echo "Error: " . $e->getMessage();
     }
-}
+} 
 ?>

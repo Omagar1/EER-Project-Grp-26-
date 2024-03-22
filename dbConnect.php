@@ -15,4 +15,5 @@ try {
   echo "Error: " . $e; // dispable after development
   echo "Connection failed"; 
 }
+
 ?>
