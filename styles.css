@@ -1,3 +1,20 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+main {
+  flex: 1;   
+  padding: 20px; 
+}
+
 #form-container{
     margin-top: 30px;
     display: flex;
@@ -36,4 +53,46 @@
   border: 2px solid #adada9;
   border-radius: 8px;
   cursor: pointer;
+}
+
+header {
+  background: #fbfdea;
+  color: rgb(255, 255, 255);
+  border: 2px solid #adada9;
+  font-family: Arial, sans-serif;
+  font-size: 38px; 
+  padding: 25px;
+  margin: 0; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.header-text a {
+  color: rgb(0, 0, 0);
+  font-size: 22px; 
+  padding: 32px;
+  margin: 0; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1; 
+}
+
+.header-buttons a {
+  padding: 0 10px; 
+  margin-right: 100px;
+  margin-left: 100px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 22px; 
 }
