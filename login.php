@@ -37,7 +37,6 @@ if (isset($_POST['loginSubmit']))
         <input type="submit" name="loginSubmit"><br>
         <div class ="errorMessage"><?php echo $msg ?></div>
     </form>
-    <a href="index.php">Back</a>
 </div>
 </div>
 
