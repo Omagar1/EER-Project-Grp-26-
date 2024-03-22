@@ -4,50 +4,36 @@ session_start();
 require_once "dbConnect.php";
 require_once "createAccount.php";
 
-function sendEmail()
-{   
-    
-    $otp_data = isset($_SESSION['otp_data']) ? $_SESSION['otp_data'] : null;
-
-    if ($otp_data) {
-        $otp = $otp_data['otp'];
-    } else {
-        echo 'Error: OTP Missing or Invalid';
-        return;
-    }
-
-    $email = $_POST['signUpEmail'];
-    $subject = "Email Verification";
-    $body = "Please Click the Link Below to Verify Your Account\n"
-        . "http://localhost:8080/MailTest/EER-Project-Grp-26--main/verifyOTP.php?otp=" . $otp;
-         
-    if (mail($email, $subject, $body)) {
-        echo "Email successfully sent to $email...";
-    } else {
-        echo "Email sending failed...";
-    }
-}
 $msg = "";
 
 if (isset($_POST['signUpSubmit']))
-{    
-     $email = $_POST['signUpEmail'];
-
-    $otp = rand(100000, 999999);
-    $_SESSION['otp_data'] = array(
-    'otp' => $otp,
-    'timestamp' => time()
-);
-    sendEmail();
-    
-    if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
+{
+    if (preg_match('/[^a-zA-Z0-9]/', $_POST['signUpPassword']) > 0 And preg_match('/[0-9]/', $_POST['signUpPassword']) > 0)
+    // checks if the password used for signup contains at least 1 special character and 1 number.
     {
-        $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']));
-    } else 
+        if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
+        // password confirmation
+        {
+            $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST['role']);
+        }
+        else
+        {
+            $msg = "Entered passwords do not match.";
+        }
+    }
+    else
     {
-        $msg = "Passwords do not match.";
+        $msg = "Password must contain at least 1 special character and 1 number.";
     }
 }
+// else
+// {
+//     date_default_timezone_set("Europe/London");
+//     $currentTime = date("H:i:s");
+//     echo $currentTime;
+//     // returns current London time
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +48,7 @@ if (isset($_POST['signUpSubmit']))
     
 <div id="form-container">
     <div id="user-form">
-    <h2>Create Account</h2>
+    <h1>Create Account</h1>
         <form action="signUp.php" method="post">
             <label for="signUpEmail">Email:</label><br>
             <input type="email" name="signUpEmail" placeholder="example@email.com" required><br>
@@ -71,12 +57,19 @@ if (isset($_POST['signUpSubmit']))
             <input type="password" name="signUpPassword" minlength="4" required><br>
 
             <label for="confirmAccountPassword">Re-type Password:</label><br>
-            <input type="password" name="confirmAccountPassword" minlength="4" required><br><br>
+            <input type="password" name="confirmAccountPassword" minlength="4" required><br>
+
+            <label for="role">Role:</label>
+            <select name="role" required>
+                <option value="Landlord/Homeowner">Landlord/Homeowner</option>
+                <option value="Prospective buyer/Tenant">Prospective buyer/Tenant</option>
+            </select><br><br>
 
             <input type="submit" name="signUpSubmit"><br>
             <div class="errorMessage"><?php echo $msg ?></div>
         </form>
-</div>
+        <a href="index.php">Back</a>
+    </div>
 </div>
 </body>
 </html>
