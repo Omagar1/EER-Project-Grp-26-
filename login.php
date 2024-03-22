@@ -22,8 +22,9 @@ if (isset($_POST['loginSubmit']))
     <link rel="stylesheet" href="styles.css">
     <title>Login</title>
 </head>
-<body>
 
+<body>
+<?php include_once "navBar.php"; ?>
 <div id="form-container">
     <div id="user-form">
     <h1>Login</h1>

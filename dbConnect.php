@@ -16,5 +16,4 @@ try {
   echo "Connection failed"; 
 }
 
-
 ?>
