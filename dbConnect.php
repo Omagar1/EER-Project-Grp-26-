@@ -9,7 +9,7 @@ $dbname = "eer-db";
 try {
   $conn = new PDO("sqlsrv:server=$servername; Database=$dbname;", $username, $password, array(
     PDO::ATTR_TIMEOUT => 5, // in seconds
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    //PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 ));
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
