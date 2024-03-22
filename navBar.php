@@ -5,8 +5,6 @@
         <link rel="stylesheet" href="styles.css"/>
     </head>
 
-<body>
-
 <header class="header">
 
 <div class="header-text">
@@ -22,7 +20,4 @@
 
 </header>
 
-<p>body</p>
-
-</body>
 </html>
