@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>View User Accounts</title>
-        <link rel="stylesheet" href="styles.css"/>
-    </head>
 
 <header class="header">
 
@@ -20,4 +14,3 @@
 
 </header>
 
-</html>
