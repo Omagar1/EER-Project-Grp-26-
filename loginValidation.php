@@ -10,11 +10,14 @@ function loginValidation($conn, $email, $hashPassWord) {
         $stmt->bindParam(':password', $hashPassWord, PDO::PARAM_STR);
 
         $stmt->execute();
-
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($result)
         {
+            $_SESSION['userID'] = $result['ID'];
+            //echo  $_SESSION['userID']; // test
+            $_SESSION['username'] = strpos($result['email'],"@");
+            $_SESSION["loggedIn"] = true;
             header("Location: loggedIn.php");
             exit();
         } else 
