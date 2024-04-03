@@ -16,6 +16,7 @@ function loginValidation($conn, $email, $hashPassWord) {
         {
             $_SESSION['userID'] = $result['ID'];
             //echo  $_SESSION['userID']; // test
+            $_SESSION['userRole'] = $result['role'];
             
             $_SESSION['username'] = str_replace(".","",explode("@",$result['email'])[0]);
             $_SESSION["loggedIn"] = true;

@@ -20,9 +20,9 @@ $msg = "";
 <?php include_once "navBar.php"; ?>
 <div id="form-container">
     <div id="user-form">
-    <h1>Data Base Connection Faled</h1>
-    <p>try again</p>
-    <a href="index.php">Back</a>
+        <h1>Data Base Connection Faled</h1>
+        <p>try again</p>
+        <a href="index.php">Back</a>
     </div>
 </div>
 
