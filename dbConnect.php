@@ -13,7 +13,8 @@ try {
   //echo "Connected successfully </br>"; //test
 } catch(PDOException $e) {
   echo "Error: " . $e; // dispable after development
-  echo "Connection failed"; 
+  echo "Connection failed";
+  header("DBconnectFailed.php");
 }
 
 ?>
