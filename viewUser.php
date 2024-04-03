@@ -1,5 +1,6 @@
 <?php
 require("dbConnect.php");
+include_once("navBar.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,14 +18,13 @@ require("dbConnect.php");
                 <th>Email Address</th>
                 <th>Date Created</th>
                 <th>Role</th>
-                <th>Active</th>
                 <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <?php
             try{
-            $sql = "Select accountID,emailAddress,dateCreated,role,active FROM account ORDER BY accountID ASC;";
+            $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE active=True ORDER BY accountID ASC;";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -34,7 +34,6 @@ require("dbConnect.php");
                 <td><?php echo $row["emailAddress"]?></td>
                 <td><?php echo $row["dateCreated"]?></td>
                 <td><?php echo $row["role"]?></td>
-                <td><?php echo $row["active"]?></td>
                 <td><a href="deleteUser.php?id=<?php echo $row["accountID"];?>">Delete</a></td>
             </tr>
             <?php
