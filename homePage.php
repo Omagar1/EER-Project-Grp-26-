@@ -1,5 +1,9 @@
 <?php
-session_start();
+// Values are in seconds // lasts an hour
+session_start([ 
+    'cookie_lifetime' => 3600, 
+    'gc_maxlifetime' => 3600, 
+   ]);
 require_once "dbConnect.php";
 require_once "notLoggedIn.php";
 $_SESSION["userRole"] = "admin"; //test
