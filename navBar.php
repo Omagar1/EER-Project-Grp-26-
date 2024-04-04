@@ -2,7 +2,7 @@
 <header class="header">
 
     
-    <?php if(isset($_SESSION["loggedin"]) And $_SESSION["loggedin"] == true ):?>
+    <?php if(isset($_SESSION["loggedIn"]) And $_SESSION["loggedIn"] == true ):?>
         <div class="header-text">
             <h1><a href="home.php">Energy Efficiency Application</a></h1>
         </div>

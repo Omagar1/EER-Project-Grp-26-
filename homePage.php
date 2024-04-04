@@ -20,20 +20,23 @@ var_dump($_SESSION);
     <?php include_once "navBar.php"; ?>
     <div id="container">
         <h2>Welcome <?php echo $_SESSION['username'];?></h2>
+        <ul>
         <?php switch ($_SESSION["role"]):
             case "admin":?>
-                <a href="manageUsers.php">Manage Users</a>
-                <a href="#manageProperty.php">Manage Properties</a>
+                <li><a href="manageUsers.php">Manage Users</a></li>
+                <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break;
             case "landlord":?>
-                <a href="#addNewPropperty.php">Add New Property</a>
-                <a href="#manageProperty.php">Manage Properties</a>
+                <li><a href="#addNewPropperty.php">Add New Property</a></li>
+                <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break; 
             case "tenants "?>
-                <a href="veiwPropperties.php">View</a>
-                <a href="veiwSavedPropperties.php">View Saved</a>
+                <li><a href="veiwPropperties.php">View</a></li>
+                <li><a href="veiwSavedPropperties.php">View Saved</a></li>
                 <?php break;
         endswitch;?>
+        <li><a href="#manageAccount.php">manage My Account</a></li>
+        </ul>
     </div>
 </body>
 </html>
