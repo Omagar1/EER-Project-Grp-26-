@@ -2,7 +2,9 @@
 session_start();
 require_once "dbConnect.php";
 require_once "notLoggedIn.php";
+$_SESSION["role"] = "admin"; 
 var_dump($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
