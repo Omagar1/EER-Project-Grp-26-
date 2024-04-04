@@ -21,7 +21,7 @@ function loginValidation($conn, $email, $hashPassWord) {
             $_SESSION['username'] = str_replace(".","",explode("@",$result['email'])[0]);
             $_SESSION["loggedIn"] = true;
             header("Location: home.php");
-            exit();
+            //exit();
         } else 
         {
             return "Invalid email or password.";
