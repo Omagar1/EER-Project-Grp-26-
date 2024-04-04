@@ -1,8 +1,6 @@
 <?php
-ob_start();
 session_start();
 require_once "dbConnect.php";
-require_once "loginValidation.php";
 require_once "notLoggedIn.php";
 ?>
 
@@ -18,6 +16,7 @@ require_once "notLoggedIn.php";
 <body>
     <?php include_once "navBar.php"; ?>
     <div id="container">
+        <h2>Welcome <?php echo $_SESSION['username'];?></h2>
         <?php switch ($_SESSION["role"]):
             case "admin":?>
                 <a href="manageUsers.php">Manage Users</a>
