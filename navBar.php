@@ -7,20 +7,21 @@
             <h1><a href="home.php">Energy Efficiency Application</a></h1>
         </div>
         <div class="header-buttons">
-        <?php switch ($_SESSION["role"]):?>
-            <?php case "admin" :?>
+        <?php switch ($_SESSION["role"]):
+            case "admin" :?>
                 <a href="manageProperties.php">Manage Properties</a>
                 <a href="placeholder.php">Add New Property</a>
             <?php case "landlord":?>
                 <a href="manageProperties.php">Manage Properties</a>
                 <a href="placeholder.php">Add New Property</a>
                 <?break;?>
-            <?php case "tennant"?>
+            <?php case "tennant":?>
                 <a href="viewProperty.php">Search Properties</a>
                 <a href="placeholder.php">veiw Saved Properties</a>
                 <?break;?>
-            <a href="placeholder.php">View Profile</a>
-            <a href="placeholder.php">Log out</a>
+        <?php endswitch?>
+        <a href="placeholder.php">View Profile</a>
+        <a href="placeholder.php">Log out</a>
         </div>
     <?php else:?>
         <div class="header-text">
