@@ -14,7 +14,7 @@ try {
 } catch(PDOException $e) {
   echo "Error: " . $e; // dispable after development
   echo "Connection failed";
-  header("DBconnectFailed.php");
+  header("location: DBconnectFailed.php");
 }
 
 ?>
