@@ -32,50 +32,51 @@ require("dbConnect.php");
                     $stmt->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-            ?>
-            <form method="post">
-                    <div>
-                        <label>Owner ID</label>
-                        <input  type="text" name = "oid" value="<?php echo $row["ownerID"]; ?>">
-                   </div>
+                    ?>
+                        <form method="post">
+                            <div>
+                                <label>Owner ID</label>
+                                <input  type="text" name = "oid" value="<?php echo $row["ownerID"]; ?>">
+                            </div>
 
-                   <div>
-                        <label>EER</label>
-                        <input  type="text" name = "eer" value="<?php echo $row["EER"]; ?>">
-                   </div>
+                            <div>
+                                <label>EER</label>
+                                <input  type="text" name = "eer" value="<?php echo $row["EER"]; ?>">
+                            </div>
 
-                   <div>
-                        <label>Postcode</label>
-                        <input  type="text" name = "postcode" value="<?php echo $row["postcode"]; ?>">
-                   </div>
+                            <div>
+                                <label>Postcode</label>
+                                <input  type="text" name = "postcode" value="<?php echo $row["postcode"]; ?>">
+                            </div>
 
-                   <div>
-                        <label>Address</label>
-                        <input  type="text" name = "address" value="<?php echo $row["address"]; ?>">
-                   </div>
+                            <div>
+                                <label>Address</label>
+                                <input  type="text" name = "address" value="<?php echo $row["address"]; ?>">
+                            </div>
 
-                   <div>
-                        <label>Report Issue Date</label>
-                        <input  type="text" name = "rdate" value="<?php echo $row["reportIssueDate"]; ?>">
-                   </div>
+                            <div>
+                                <label>Report Issue Date</label>
+                                <input  type="text" name = "rdate" value="<?php echo $row["reportIssueDate"]; ?>">
+                            </div>
 
-                   <div>
-                        <label>Certificate Number</label>
-                        <input  type="text" name = "certnum" value="<?php echo $row["certificateNumber"]; ?>">
-                   </div>
+                            <div>
+                                <label>Certificate Number</label>
+                                <input  type="text" name = "certnum" value="<?php echo $row["certificateNumber"]; ?>">
+                            </div>
 
-                   <div>
-                       <input type="submit" name="update" value="Update">
-                   </div>
-                   <div>
-                        <a href="viewProperty.php">Back</a>
-                    </div>
-            </form>
-            <?php 
-            }//while loop
-            }catch(PDOException $e){
-            echo $e;
-            }?>
+                            <div>
+                                <input type="submit" name="update" value="Update">
+                            </div>
+                            
+                            <div>
+                                <a href="viewProperty.php">Back</a>
+                            </div>
+                        </form>
+                        <?php 
+                    }//while loop
+                }catch(PDOException $e){
+                    echo $e;
+                }?>
             
         </div>
     </body>

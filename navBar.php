@@ -11,14 +11,15 @@
             case "admin" :?>
                 <a href="manageProperties.php">Manage Properties</a>
                 <a href="placeholder.php">Add New Property</a>
+                <?php break;?>
             <?php case "landlord":?>
                 <a href="manageProperties.php">Manage Properties</a>
                 <a href="placeholder.php">Add New Property</a>
-                <?break;?>
+                <?php break;?>
             <?php case "tennant":?>
                 <a href="viewProperty.php">Search Properties</a>
-                <a href="placeholder.php">veiw Saved Properties</a>
-                <?break;?>
+                <a href="placeholder.php">Veiw Saved Properties</a>
+                <?php break;?>
         <?php endswitch?>
         <a href="placeholder.php">View Profile</a>
         <a href="placeholder.php">Log out</a>
