@@ -18,11 +18,11 @@
                     <?php break;?>
                 <?php case "tenant":?>
                     <a href="viewProperty.php">Search Properties</a>
-                    <a href="placeholder.php">Veiw Saved Properties</a>
+                    <a href="veiwSavedProperty.php">Veiw Saved Properties</a>
                     <?php break;?>
             <?php endswitch?>
-            <a href="placeholder.php">View Profile</a>
-            <a href="placeholder.php">Log out</a>
+            <a href="#manageAccount.php">View Profile</a>
+            <a href="logout.php">Log out</a>
         </div>
     <?php else:?>
         <div class="header-text">
