@@ -12,23 +12,26 @@ require_once "notLoggedIn.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Login</title>
+    <title>Home</title>
 </head>
 
 <body>
-<?php include_once "navBar.php"; ?>
-<div id="container">
-    <a href="#veiwPropperties.php">View</a>
-    <a href="#veiwSavedPropperties.php">View Saved</a>
-    <?php if($_SESSION["role"] == "landlord" Or $_SESSION["role"] == "admin"):?>
-        <a href="#addNewPropperty.php">Add New</a>
-    <?endif;
-    if($_SESSION["role"] == "admin"): ?>
-        <a href="#manageUsers.php">Manage Users</a>
-    <?php endif?>
-</div>
-
-
-
+    <?php include_once "navBar.php"; ?>
+    <div id="container">
+        <?php switch ($_SESSION["role"]):
+            case "admin":?>
+                <a href="manageUsers.php">Manage Users</a>
+                <a href="#manageProperty.php">Manage Properties</a>
+                <?php break;
+            case "landlord":?>
+                <a href="#addNewPropperty.php">Add New Property</a>
+                <a href="#manageProperty.php">Manage Properties</a>
+                <?php break; 
+            case "tenants "?>
+                <a href="veiwPropperties.php">View</a>
+                <a href="veiwSavedPropperties.php">View Saved</a>
+                <?php break;
+        endswitch;?>
+    </div>
 </body>
 </html>

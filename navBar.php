@@ -16,7 +16,7 @@
                 <a href="manageProperties.php">Manage Properties</a>
                 <a href="placeholder.php">Add New Property</a>
                 <?php break;?>
-            <?php case "tennant":?>
+            <?php case "tenant":?>
                 <a href="viewProperty.php">Search Properties</a>
                 <a href="placeholder.php">Veiw Saved Properties</a>
                 <?php break;?>
