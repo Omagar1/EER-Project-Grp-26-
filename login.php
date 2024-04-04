@@ -1,5 +1,3 @@
-<!-- add password confirmation, create all other pages from wireframe, add error handling to variables before functions are called -->
-
 <?php
 ob_start();
 session_start();
@@ -13,6 +11,7 @@ if (isset($_POST['loginSubmit']))
     $msg = loginValidation($conn, $_POST['loginEmail'], md5($_POST['loginPassword']));
 }
 ?>
+<!-- add password confirmation, create all other pages from wireframe, add error handling to variables before functions are called -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +26,7 @@ if (isset($_POST['loginSubmit']))
 <?php include_once "navBar.php"; ?>
 <div id="form-container">
     <div id="user-form">
+
     <h1>Login</h1>
     <form action="login.php" method="post">
         <label for="loginEmail">Email:</label><br>
@@ -46,3 +46,6 @@ if (isset($_POST['loginSubmit']))
 
 </body>
 </html>
+<?php
+ob_end_flush();
+?>
