@@ -11,7 +11,7 @@ require("dbConnect.php");
         <div>
             <?php
             try{
-            $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
+            $sql ="SELECT propertyID, EER, postcode, address FROM property ORDER BY propertyID ASC;";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){

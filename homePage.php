@@ -2,7 +2,7 @@
 session_start();
 require_once "dbConnect.php";
 require_once "notLoggedIn.php";
-$_SESSION["role"] = "admin"; 
+$_SESSION["userRole"] = "admin"; //test
 var_dump($_SESSION);
 
 ?>
@@ -23,7 +23,7 @@ var_dump($_SESSION);
         <ul>
         <?php switch ($_SESSION["role"]):
             case "admin":?>
-                <li><a href="manageUsers.php">Manage Users</a></li>
+                <li><a href="manageUser.php">Manage Users</a></li>
                 <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break;
             case "landlord":?>

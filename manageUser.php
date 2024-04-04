@@ -24,7 +24,7 @@ include_once("navBar.php");
         <tbody>
             <?php
             try{
-            $sql = "SELECT accountID, emailAddress, dateCreated, role FROM account WHERE active = true ORDER BY accountID ASC;";
+            $sql = "SELECT accountID, emailAddress, dateCreated, role FROM account WHERE active = 1 ORDER BY accountID ASC;";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
