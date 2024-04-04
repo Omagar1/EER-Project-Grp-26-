@@ -46,7 +46,7 @@ if (isset($_POST['signUpSubmit']))
     
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
-        $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']));
+        $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
     } else 
     {
         $msg = "Passwords do not match.";
@@ -75,7 +75,14 @@ if (isset($_POST['signUpSubmit']))
             <input type="password" name="signUpPassword" minlength="4" required><br>
 
             <label for="confirmAccountPassword">Re-type Password:</label><br>
-            <input type="password" name="confirmAccountPassword" minlength="4" required><br><br>
+            <input type="password" name="confirmAccountPassword" minlength="4" required><br>
+            
+            <label for="Role">Role: </label><br>
+            <select name="Role">
+                <option value="volvo">Tenant</option>
+                <option value="saab">Landlord</option>
+                <option value="opel">Admin</option>
+            </select><br><br>
 
             <input type="submit" name="signUpSubmit"><br>
             <div class="errorMessage"><?php echo $msg ?></div>
