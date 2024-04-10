@@ -4,10 +4,10 @@ CREATE TABLE account (
     accountID INTEGER PRIMARY KEY IDENTITY(1,1),
     emailAddress VARCHAR(255) NOT NULL,
     verifyEmail BIT NOT NULL DEFAULT 0,
-    emailChanged DATETIME NOT NULL, -- when first created is the same time as date created
-    emailChangedBy INTEGER NOT NULL, -- foreign key refference account ID
+    emailChanged DATETIME NOT NULL DEFAULT GETDATE(), -- when first created is the same time as date created
+    emailChangedBy INTEGER NOT NULL DEFAULT 0, -- foreign key refference account ID
     password VARCHAR(255) NOT NULL,
-    dateCreated DATE NOT NULL,
+    dateCreated DATE NOT NULL DEFAULT GETDATE(),
     role VARCHAR(255) NOT NULL,
     active BIT NOT NULL DEFAULT 1
 );
@@ -18,15 +18,11 @@ CREATE TABLE property (
     EER CHAR NOT NULL, 
     postcode VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL, 
-    addressChanged DATETIME NOT NULL, -- when first created is the same time as date created
+    addressChanged DATETIME NOT NULL DEFAULT GETDATE(), -- when first created is the same time as date created
     addressChangedBy INTEGER NOT NULL, -- foreign key refference account ID
     reportIssueDate DATE NOT NULL,
 );
-DROP TABLE IF EXISTS equation;
-CREATE TABLE equation (
-    equationID INTEGER PRIMARY KEY IDENTITY(1,1),
-    equation VARCHAR NOT NULL
-);
+
 DROP TABLE IF EXISTS userSavedProperty;
 CREATE TABLE userSavedProperty (
     ID INTEGER PRIMARY KEY IDENTITY(1,1),
@@ -40,4 +36,10 @@ CREATE TABLE recommendation (
     carbonEmistionsImpact VARCHAR NOT NULL, 
     recomendedChanges VARCHAR(255) NOT NULL
 );
+
+-- DROP TABLE IF EXISTS equation;
+-- CREATE TABLE equation (
+--     equationID INTEGER PRIMARY KEY IDENTITY(1,1),
+--     equation VARCHAR NOT NULL
+-- );
  
