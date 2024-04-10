@@ -4,7 +4,7 @@
     
     <?php if(isset($_SESSION["loggedIn"]) And $_SESSION["loggedIn"] == true ):?>
         <div class="header-text">
-            <h1><a href="home.php">Energy Efficiency Application</a></h1>
+            <h1>Energy Efficiency Application</h1>
         </div>
         <div class="header-buttons">
             <?php switch ($_SESSION["userRole"]):
@@ -22,6 +22,7 @@
                     <?php break;?>
             <?php endswitch?>
             <a href="#manageAccount.php">View Profile</a>
+            <a href="home.php">Home</a>
             <a href="logout.php">Log out</a>
         </div>
     <?php else:?>
