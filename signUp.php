@@ -7,10 +7,17 @@ session_start([
    ]);
 require_once "dbConnect.php";
 require_once "createAccount.php";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/phpmailer/phpmailer/src/Exception.php';
+require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require 'vendor/phpmailer/phpmailer/src/SMTP.php';
+
+require 'vendor/autoload.php';
 
 function sendEmail()
 {   
-    
     $otp_data = isset($_SESSION['otp_data']) ? $_SESSION['otp_data'] : null;
 
     if ($otp_data) {
@@ -20,17 +27,51 @@ function sendEmail()
         return;
     }
 
-    $email = $_POST['signUpEmail'];
-    $subject = "Email Verification";
-    $body = "Please Click the Link Below to Verify Your Account\n"
-        . "http://localhost:8080/MailTest/EER-Project-Grp-26--main/verifyOTP.php?otp=" . $otp;
-         
-    if (mail($email, $subject, $body)) {
-        echo "Email successfully sent to $email...";
+
+    $mail = new PHPMailer;
+
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'eerapplication@gmail.com';
+    $mail->Password = 'ueicjyqunioaygvq'; 
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    $mail->setFrom('eerapplication@gmail.com');
+    $mail->addAddress($_POST['signUpEmail']);
+    $mail->Subject = 'Please Verify Your Email';
+    $mail->Body    = 'Please Click On the Link Below to Verify' . 
+        "\nhttps://eercalc.azurewebsites.net/verifyOTP.php?otp=" . $otp;
+
+    if(!$mail->send()) {
+        echo 'Message could not be sent.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo "Email sending failed...";
+        echo 'Message has been sent';
     }
 }
+
+function updateVerificationStatus($email, $conn)
+{
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    
+    $sql = "UPDATE account SET active = 1 WHERE email = '$email'";
+    
+    // Execute query
+    if (mysqli_query($conn, $sql)) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . mysqli_error($conn);
+    }
+
+
+    mysqli_close($conn);
+}
+
 $msg = "";
 
 if (isset($_POST['signUpSubmit']))
