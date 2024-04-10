@@ -32,7 +32,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         } else
         {
             $stmt1->execute();
-            header("Location: homePage.php");
+            header("Location: /homePage.php");
             return "Account created!";
         }
     } catch (PDOException $e)

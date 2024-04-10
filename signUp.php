@@ -89,7 +89,7 @@ if (isset($_POST['signUpSubmit']))
     {
         $msg = "test";
         sendEmail();
-        //$msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
+        $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
     } else 
     {
