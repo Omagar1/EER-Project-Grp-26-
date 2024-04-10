@@ -54,22 +54,15 @@ function sendEmail()
 
 function updateVerificationStatus($email, $conn)
 {
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+    try{
+        $sql = "UPDATE account SET active = ? WHERE email = ?'";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([1,$email]);
+    } catch (PDOException $e)
+    {
+        echo "Error: " . $e->getMessage();
+        return $e;
     }
-    
-    
-    $sql = "UPDATE account SET active = 1 WHERE email = '$email'";
-    
-    // Execute query
-    if (mysqli_query($conn, $sql)) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . mysqli_error($conn);
-    }
-
-
-    mysqli_close($conn);
 }
 
 $msg = "";
