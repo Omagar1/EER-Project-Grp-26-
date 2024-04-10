@@ -27,12 +27,10 @@ function createAccount($conn, $email, $hashPassword, $role)
             $stmt1->bindParam(':password', $hashPassword, PDO::PARAM_STR);
             
             $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
-            return "testing";
-
             if($role == "admin"){
-                $stmt1->bindParam(':active', True , PDO::PARAM_BOOL);// as admin accounts should be aproved by admins first -stoped for testing
+                $stmt1->bindParam(':active', (bool)1 , PDO::PARAM_BOOL);// as admin accounts should be aproved by admins first -stoped for testing
             }else{
-                $stmt1->bindParam(':active', True , PDO::PARAM_BOOL);
+                $stmt1->bindParam(':active', (bool)1 , PDO::PARAM_BOOL);
             }
             
             $stmt1->execute();
