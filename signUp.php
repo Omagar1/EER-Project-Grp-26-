@@ -88,9 +88,9 @@ if (isset($_POST['signUpSubmit']))
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
         sendEmail();
-        $msg ="test";
+        //$msg ="test";
         var_dump($_POST);
-        //$msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
+        $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
     } else 
     {
@@ -124,9 +124,9 @@ if (isset($_POST['signUpSubmit']))
             
             <label for="role">Role: </label><br>
             <select name="role">
-                <option value="volvo">Tenant</option>
-                <option value="saab">Landlord</option>
-                <option value="opel">Admin</option>
+                <option value="Tenant">Tenant</option>
+                <option value="Landlord">Landlord</option>
+                <option value="Admin">Admin</option>
             </select><br><br>
 
             <input type="submit" name="signUpSubmit"><br>

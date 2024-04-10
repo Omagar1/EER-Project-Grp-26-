@@ -3,7 +3,8 @@ function createAccount($conn, $email, $hashPassword, $role)
 {
     try
     {
-        echo "createAccount Ran"; //test
+        return "testing";
+        //echo "createAccount Ran"; //test
         $sql1 = "INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);";
         $sql2 = "SELECT * FROM account WHERE emailAddress = :email AND Password = :Password";
 
