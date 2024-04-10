@@ -87,6 +87,7 @@ if (isset($_POST['signUpSubmit']))
     
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
+        $msg = "test";
         sendEmail();
         $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
