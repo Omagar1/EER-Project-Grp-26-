@@ -19,7 +19,7 @@ CREATE TABLE property (
     postcode VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL, 
     addressChanged DATETIME NOT NULL, -- when first created is the same time as date created
-    postcodeChangedBy INTEGER NOT NULL, -- foreign key refference account ID
+    addressChangedBy INTEGER NOT NULL, -- foreign key refference account ID
     reportIssueDate DATE NOT NULL,
 );
 DROP TABLE IF EXISTS equation;
