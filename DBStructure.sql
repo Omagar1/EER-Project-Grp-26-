@@ -16,12 +16,11 @@ CREATE TABLE property (
     propertyID INTEGER PRIMARY KEY IDENTITY(1,1),
     ownerID INTEGER NOT NULL, -- foreign key refference account ID
     EER CHAR NOT NULL, 
-    postcode VARCHAR(255) NOT NULL, -- Presumptive
-    address VARCHAR(255) NOT NULL, -- Presumptive
+    postcode VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL, 
     addressChanged DATETIME NOT NULL, -- when first created is the same time as date created
     postcodeChangedBy INTEGER NOT NULL, -- foreign key refference account ID
-    reportIssueDate DATE NOT NULL, -- Presumptive
-    certificateNumber VARCHAR(255) NOT NULL -- Presumptive
+    reportIssueDate DATE NOT NULL,
 );
 DROP TABLE IF EXISTS equation;
 CREATE TABLE equation (
