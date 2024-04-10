@@ -7,7 +7,7 @@
             <h1><a href="home.php">Energy Efficiency Application</a></h1>
         </div>
         <div class="header-buttons">
-            <?php switch ($_SESSION["role"]):
+            <?php switch ($_SESSION["userRole"]):
                 case "admin" :?>
                     <a href="manageProperties.php">Manage Properties</a>
                     <a href="placeholder.php">Add New Property</a>
