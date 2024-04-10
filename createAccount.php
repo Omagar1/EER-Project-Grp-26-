@@ -39,6 +39,7 @@ function createAccount($conn, $email, $hashPassword, $role)
     } catch (PDOException $e)
     {
         echo "Error: " . $e->getMessage();
+        return $e;
     }
 } 
 ?>
