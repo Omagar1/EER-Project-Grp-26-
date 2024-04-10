@@ -3,6 +3,7 @@ function createAccount($conn, $email, $hashPassword, $role)
 {
     try
     {
+        echo "createAccount Ran"; //test
         $sql1 = "INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);";
         $sql2 = "SELECT * FROM account WHERE emailAddress = :email AND Password = :Password";
 
@@ -32,7 +33,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         } else
         {
             $stmt1->execute();
-            header("Location: /homePage.php");
+            //header("Location: homePage.php");
             return "Account created!";
         }
     } catch (PDOException $e)
