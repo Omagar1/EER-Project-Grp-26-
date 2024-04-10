@@ -1,5 +1,6 @@
 <?php
 require("dbConnect.php");
+include_once("navBar.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,6 @@ require("dbConnect.php");
                 <th>Postcode</th>
                 <th>Address</th>
                 <th>Report Issue Date</th>
-                <th>Certificate Number</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -27,7 +27,7 @@ require("dbConnect.php");
         <tbody>
             <?php
             try{
-            $sql ="SELECT propertyID,ownerID,EER,postcode,address,reportIssueDate,certificateNumber FROM property ORDER BY propertyID ASC;";
+            $sql ="Select propertyID,ownerID,EER,postcode,address,reportIssueDate FROM property ORDER BY propertyID ASC;";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -39,7 +39,6 @@ require("dbConnect.php");
                 <td><?php echo $row["postcode"]?></td>
                 <td><?php echo $row["address"]?></td>
                 <td><?php echo $row["reportIssueDate"]?></td>
-                <td><?php echo $row["certificateNumber"]?></td>
                 <td><a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a></td>
                 <td><a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a></td>
             </tr>
