@@ -9,7 +9,7 @@ function createAccount($conn, $email, $hashPassword, $role)
 
         $stmt1 = $conn->prepare($sql1);
         $stmt2 = $conn->prepare($sql2);
-        return "testing";
+        
         $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt1->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
         $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
@@ -24,7 +24,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         $stmt2->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
 
         $stmt2->execute();
-
+        return "testing";
         $result = $stmt2->fetch(PDO::FETCH_ASSOC);
 
         if ($result)
