@@ -13,7 +13,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         $stmt2->execute();
          
         $result = $stmt2->fetch(PDO::FETCH_ASSOC);
-        return "testing";
+        
         if ($result)
         {
             return "An account with that email already exists.";
@@ -29,7 +29,9 @@ function createAccount($conn, $email, $hashPassword, $role)
             }else{
                 $stmt1->bindParam(':active', 1 , PDO::PARAM_STR);
             }
+            return "testing";
             $stmt1->execute();
+            
             //header("Location: homePage.php");
             return "Account created!";
         }
