@@ -19,10 +19,11 @@ function createAccount($conn, $email, $hashPassword, $role)
             return "An account with that email already exists.";
         } else
         {
-            $sql1 = "INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);";
+            $sql1 = 'INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);';
             $stmt1 = $conn->prepare($sql1);
-            //return "testing";
+            //
             $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
+            return "testing";
             $stmt1->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
             $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
             if($role == "admin"){
