@@ -21,7 +21,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         {
             $sql1 = "INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);";
             $stmt1 = $conn->prepare($sql1);
-            return "testing";
+            //return "testing";
             $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
             $stmt1->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
             $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
