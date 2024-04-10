@@ -3,14 +3,13 @@ function createAccount($conn, $email, $hashPassword, $role)
 {
     try
     {
-        return "testing";
         //echo "createAccount Ran"; //test
         $sql1 = "INSERT INTO account (emailAddress, Password, role, active) VALUES (:email, :Password, :role, :active);";
         $sql2 = "SELECT * FROM account WHERE emailAddress = :email AND Password = :Password";
 
         $stmt1 = $conn->prepare($sql1);
         $stmt2 = $conn->prepare($sql2);
-
+        return "testing";
         $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
         $stmt1->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
         $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
