@@ -11,9 +11,9 @@ function createAccount($conn, $email, $hashPassword, $role)
         $stmt2->bindParam(':Password', $hashPassword, PDO::PARAM_STR);
 
         $stmt2->execute();
-        //return "testing"; 
+         
         $result = $stmt2->fetch(PDO::FETCH_ASSOC);
-
+        return "testing";
         if ($result)
         {
             return "An account with that email already exists.";
