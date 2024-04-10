@@ -85,7 +85,7 @@ if (isset($_POST['signUpSubmit']))
 );
     
     
-    if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
+    if ($_POST['signUpPassword'] == $_POST['confirmAccountPassword'])
     {
         $msg = "test";
         sendEmail();
