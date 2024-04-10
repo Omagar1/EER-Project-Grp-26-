@@ -105,7 +105,7 @@ if (isset($_POST['signUpSubmit']))
 <div id="form-container">
     <div id="user-form">
     <h2>Create Account</h2>
-        <form action="signUp.php" enctype="multipart/form-data" method="post">
+        <form enctype="multipart/form-data" method="post">
             <label for="signUpEmail">Email:</label><br>
             <input type="email" name="signUpEmail" placeholder="example@email.com" required><br>
 
