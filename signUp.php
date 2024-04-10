@@ -88,7 +88,7 @@ if (isset($_POST['signUpSubmit']))
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
         $msg = "test";
-        //sendEmail();
+        sendEmail();
         $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
     } else 
@@ -111,7 +111,7 @@ if (isset($_POST['signUpSubmit']))
 <div id="form-container">
     <div id="user-form">
     <h2>Create Account</h2>
-        <form action="signUp.php" method="post">
+        <form action="signUp.php" enctype="multipart/form-data" method="post">
             <label for="signUpEmail">Email:</label><br>
             <input type="email" name="signUpEmail" placeholder="example@email.com" required><br>
 
@@ -121,8 +121,8 @@ if (isset($_POST['signUpSubmit']))
             <label for="confirmAccountPassword">Re-type Password:</label><br>
             <input type="password" name="confirmAccountPassword" minlength="4" required><br>
             
-            <label for="Role">Role: </label><br>
-            <select name="Role">
+            <label for="role">Role: </label><br>
+            <select name="role">
                 <option value="volvo">Tenant</option>
                 <option value="saab">Landlord</option>
                 <option value="opel">Admin</option>
