@@ -25,7 +25,7 @@ function createAccount($conn, $email, $hashPassword, $role)
             $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
             
             $stmt1->bindParam(':password', $hashPassword, PDO::PARAM_STR);
-            //return "testing";
+            return "testing";
             $stmt1->bindParam(':role', $role, PDO::PARAM_STR);
             if($role == "admin"){
                 $stmt1->bindParam(':active', 1 , PDO::PARAM_INT);// as admin accounts should be aproved by admins first -stoped for testing
