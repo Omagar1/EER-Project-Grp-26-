@@ -85,16 +85,16 @@ if (isset($_POST['signUpSubmit']))
     );
     
     
-    // if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
-    // {
-    //     $msg = "test";
-    //     sendEmail();
-    //     //$msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
+    if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
+    {
+        $msg = "test";
+        sendEmail();
+        //$msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
-    // } else 
-    // {
-    //     $msg = "Passwords do not match.";
-    // }
+    } else 
+    {
+        $msg = "Passwords do not match.";
+    }
 }
 ?>
 
