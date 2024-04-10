@@ -9,7 +9,7 @@ CREATE TABLE account (
     password VARCHAR(255) NOT NULL,
     dateCreated DATE NOT NULL DEFAULT GETDATE(),
     role VARCHAR(255) NOT NULL,
-    active BIT NOT NULL DEFAULT 1
+    active INTEGER NOT NULL DEFAULT 1
 );
 DROP TABLE IF EXISTS property;
 CREATE TABLE property (
