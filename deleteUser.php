@@ -20,11 +20,13 @@ try{
 <!DOCTYPE html>
 <html>
     <head>
+    <div class="container">
         <title>Delete User</title>
         <link rel="stylesheet" href="styles.css"/>
+    </div>
     </head>
     <body>
-        <div>
+        <div class="container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
         </div>
         <form method="post">
