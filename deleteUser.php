@@ -26,6 +26,8 @@ try{
     <body>
         <div class="container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
+        </div>
+        <div class="container">
         <form method="post">
             <input type="submit" value="Delete" name="delete">
             <a href="viewUser.php">Back</a>
