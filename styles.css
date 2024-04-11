@@ -111,11 +111,18 @@ header {
   margin-top: 20px;
 }
 
+.table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
 .table-wrapper table th {
-  background-color: yellow;
+  background-color: #fbfdea;
   padding: 10px;
 }
 
 .table-wrapper table td {
-  padding: 10px;
+  padding: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
 }
