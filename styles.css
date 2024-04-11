@@ -57,7 +57,6 @@ main {
 
 header {
   background: #fbfdea;
-  /* color: rgb(255, 255, 255); */
   border: 2px solid #adada9;
   font-family: Arial, sans-serif;
   font-size: 38px; 
@@ -95,4 +94,11 @@ header {
   text-decoration: none;
   color: rgb(0, 0, 0);
   font-size: 22px; 
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
