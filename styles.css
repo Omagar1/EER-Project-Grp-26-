@@ -144,7 +144,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background: #fbfdea;
+  background: #2f00ff;
   padding: 30px;
   width: 790px;
   border-radius: 20px;
@@ -152,7 +152,6 @@ header {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   transition: background 0.3s ease;
   margin-bottom: 30px;
-
-
+  margin: 0 auto; /* Center horizontally*/
 }
 
