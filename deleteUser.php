@@ -24,7 +24,7 @@ try{
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div class="delete-container">
+        <div class="display-container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
         <form method="post">
             <input type="submit" value="Delete" name="delete">
