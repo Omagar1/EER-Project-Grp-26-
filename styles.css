@@ -102,3 +102,20 @@ header {
   align-items: center;
   height: auto;
 }
+
+.table-wrapper {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.table-wrapper table th {
+  background-color: yellow;
+  padding: 10px;
+}
+
+.table-wrapper table td {
+  padding: 10px;
+}

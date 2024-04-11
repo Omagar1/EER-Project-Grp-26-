@@ -15,6 +15,7 @@ include_once("navBar.php");
         <div>
             <h2>View Users</h2>
             <h3>test 123</h3>
+            <div class="table-wrapper">
         <table>
         <thead>
             <tr>
@@ -49,7 +50,8 @@ include_once("navBar.php");
         </tbody>
         </table>
         </div>
-        </div>>
+        </div>
+        </div>
 
 
 
