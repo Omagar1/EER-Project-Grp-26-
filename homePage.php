@@ -21,8 +21,8 @@ var_dump($_SESSION);
 </head>
 
 <body>
-<div class="display-container">
     <?php include_once "navBar.php"; ?>
+    <div class="display-container">
         <h2>Welcome <?php echo $_SESSION['username'];?></h2> 
         <ul>
         <?php switch ($_SESSION["userRole"]):
