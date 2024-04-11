@@ -14,6 +14,7 @@ include_once("navBar.php");
         <div class="container">
         <div>
             <h2>View Users</h2>
+            <h3>test 123</h3>
         <table>
         <thead>
             <tr>
