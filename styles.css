@@ -152,7 +152,7 @@ header {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   transition: background 0.3s ease;
   margin-bottom: 30px;
-  margin: 50px auto 30px; /* Center horizontally and move down the page */
+  margin: 50% auto; /* Center horizontally and move down the page */
   border: 2px solid #adada9; /* Grey outline */
 }
 
