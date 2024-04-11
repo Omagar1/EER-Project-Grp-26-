@@ -20,11 +20,11 @@ var_dump($_SESSION);
     <title>Home</title>
 </head>
 
-<div class="display-container">
 <body>
     <?php include_once "navBar.php"; ?>
         <h2>Welcome <?php echo $_SESSION['username'];?></h2>
         <ul>
+        <div class="display-container">
         <?php switch ($_SESSION["userRole"]):
             case "admin":?>
                 <li><a href="manageUser.php">Manage Users</a></li>
