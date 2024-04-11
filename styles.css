@@ -118,11 +118,12 @@ header {
 
 .table-wrapper table th {
   background-color: #fbfdea;
-  padding: 10px;
+  padding: 25px;
+  font-size: 24px;
 }
 
 .table-wrapper table td {
-  padding: 30px;
+  padding: 25px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
 }
