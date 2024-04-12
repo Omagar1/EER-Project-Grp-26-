@@ -8,15 +8,15 @@
         </div>
         <div class="header-buttons">
             <?php switch ($_SESSION["userRole"]):
-                case "admin" :?>
+                case "Admin" :?>
                     <a href="manageProperty.php">Manage Properties</a>
                     <a href="placeholder.php">Add New Property</a>
                     <?php break;
-                case "landlord":?>
+                case "Landlord":?>
                     <a href="userViewProperty.php">Manage Properties</a>
-                    <a href="placeholder.php">Add New Property</a>
+                    <a href="addProperty.php">Add New Property</a>
                     <?php break;
-                case "tenant":?>
+                case "Tenant":?>
                     <a href="userViewProperty.php">Search Properties</a>
                     <a href="viewSavedProperty.php">View Saved Properties</a>
                     <?php break;

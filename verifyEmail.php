@@ -1,6 +1,6 @@
 <?php
 require_once "emailFunctions.php"; 
-$msg = "";
+
 if (isset($_POST['resendEmailSubmit'])){
     sendEmail($_SESSION["EmailUsed"]);
     $msg = "New Email has been sent to". $_SESSION["EmailUsed"]; 
@@ -19,6 +19,8 @@ if (isset($_POST['resendEmailSubmit'])){
 </head>
 <body>
     
+<?php include_once "navBar.php"; ?>
+
 <div id="form-container">
     <div id="user-form">
     <h2>Verify email</h2>
@@ -26,9 +28,13 @@ if (isset($_POST['resendEmailSubmit'])){
         <form enctype="multipart/form-data" method="post">
             <input type="submit" name="resendEmailSubmit" value="Resend Verification Email"><br>
         </form>
-        <div class="errorMessage"><?php echo $msg ?></div>
         <a href="index.php">Back</a>
 </div>
 </div>
+
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
+
 </body>
 </html>
