@@ -18,8 +18,9 @@ include_once("search.php");
     <body>
         <div>
             <?php
+
             try{
-                if ($_SESSION["userRole"]=="tenant"){
+                if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
@@ -41,7 +42,7 @@ include_once("search.php");
                     <?php 
                     }//for while
                 }//for if 
-                elseif ($_SESSION["userRole"]== "landlord"){
+                elseif ($_SESSION["userRole"]== "Landlord"){
                     $sql ="Select propertyID,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $sql->bindParam(':uid', $userid, PDO::PARAM_INT);

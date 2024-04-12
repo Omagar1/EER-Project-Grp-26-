@@ -44,7 +44,7 @@ try{
         </div>
         <?php 
         }//for while 
-        if ($_SESSION['userRole']= 'admin'){
+        if ($_SESSION['userRole']= 'Admin'){
         ?>
             <div>
                 <form method="post">
@@ -54,7 +54,7 @@ try{
             </div>
         <?php 
         }//for if
-        elseif ($_SESSION['userRole']= 'landlord'){
+        elseif ($_SESSION['userRole']= 'Landlord'){
         ?>
             <div>
                 <form method="post">
