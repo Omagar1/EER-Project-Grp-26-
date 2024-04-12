@@ -21,6 +21,7 @@ include_once("search.php");
 
             try{
                 if (isset($_SESSION['userRole'])){
+                echo $_SESSION['userRole'];
                 if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);

@@ -1,6 +1,6 @@
 <?php
 require_once "emailFunctions.php"; 
-
+$msg = "";
 if (isset($_POST['resendEmailSubmit'])){
     sendEmail($_SESSION["EmailUsed"]);
     $msg = "New Email has been sent to". $_SESSION["EmailUsed"]; 
@@ -26,6 +26,7 @@ if (isset($_POST['resendEmailSubmit'])){
         <form enctype="multipart/form-data" method="post">
             <input type="submit" name="resendEmailSubmit" value="Resend Verification Email"><br>
         </form>
+        <div class="errorMessage"><?php echo $msg ?></div>
         <a href="index.php">Back</a>
 </div>
 </div>
