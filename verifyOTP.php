@@ -42,8 +42,29 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
                 $_SESSION['userRole'] = $result['role'];
                 $_SESSION['username'] = str_replace("."," ",explode("@",$result['email'])[0]);
                 $_SESSION["loggedIn"] = true;
-
-                header("location: homePage.php");
+                if($result['role'] == "Admin"){
+                ?>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="styles.css">
+                    <title>Admin Create Account</title>
+                </head>
+                <body>
+                    
+                <div id="form-container">
+                    <div id="user-form">
+                        <h2>Please Wait for one of our existing Admins To verrify your Account</h2>
+                    </div>
+                </div>
+                </body>
+                </html>
+                <?php
+                }else{
+                    header("location: homePage.php");
+                }
+                
                 echo"logged in";// test 
 
 

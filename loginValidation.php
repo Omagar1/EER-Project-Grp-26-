@@ -2,7 +2,7 @@
 function loginValidation($conn, $email, $hashPassWord) {
     try
     {
-        $sql = "SELECT * FROM account WHERE emailAddress = :email AND password = :password";
+        $sql = "SELECT * FROM account WHERE emailAddress = :email AND password = :password AND active = 1";
 
         $stmt = $conn->prepare($sql);
 
