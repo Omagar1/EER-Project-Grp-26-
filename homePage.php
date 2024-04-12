@@ -31,12 +31,12 @@ var_dump($_SESSION);
                 <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break;
             case "Landlord":?>
-                <li><a href="#addNewPropperty.php">Add New Property</a></li>
-                <li><a href="#manageProperty.php">Manage Properties</a></li>
+                <li><a href="#addNewProperty.php">Add New Property</a></li>
+                <li><a href="userViewProperty.php">Manage Properties</a></li>
                 <?php break; 
             case "Tenant":?>
-                <li><a href="veiwPropperties.php">View</a></li>
-                <li><a href="veiwSavedPropperties.php">View Saved</a></li>
+                <li><a href="userViewProperty.php">View</a></li>
+                <li><a href="viewSavedProperty.php">View Saved</a></li>
                 <?php break;
         endswitch;?>
         <li><a href="#manageAccount.php">manage My Account</a></li>
