@@ -62,7 +62,9 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
                 </html>
                 <?php
                 }else{
-                    header("location: homePage.php");
+                    var_dump($_SESSION);
+                    var_dump($result);
+                    //header("location: homePage.php");
                 }
                 
                 echo"logged in";// test 
