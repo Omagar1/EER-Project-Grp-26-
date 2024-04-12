@@ -46,7 +46,9 @@ if (isset($_POST['loginSubmit']))
 </div>
 </div>
 
-
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
 
 </body>
 </html>

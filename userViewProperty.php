@@ -66,5 +66,10 @@ include_once("search.php");
             }
             ?>
         </div>
+
+    <footer class="footer">
+    <p>EERCalc © Group 26 2024</p>
+    </footer>
+
     </body>
 </html>
