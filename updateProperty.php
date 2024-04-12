@@ -15,7 +15,7 @@ include_once("navBar.php");
     </head>
     <body>
         <div>
-            <h2>Update Property <?php echo $_GET['id'];?>?</h2>
+            <h2>Update this property?</h2>
         </div>
         <div>
             <?php
