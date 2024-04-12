@@ -14,7 +14,7 @@
                     <?php break;
                 case "Landlord":?>
                     <a href="userViewProperty.php">Manage Properties</a>
-                    <a href="addProperty.php">Add New Property</a>
+                    <a href="Property.php">Add New Property</a>
                     <?php break;
                 case "Tenant":?>
                     <a href="userViewProperty.php">Search Properties</a>
