@@ -19,10 +19,10 @@
                 case "tenant":?>
                     <a href="viewProperty.php">Search Properties</a>
                     <a href="veiwSavedProperty.php">Veiw Saved Properties</a>
-                    <?php break;?>
-            <?php endswitch?>
+                    <?php break;
+            endswitch?>
             <a href="#manageAccount.php">View Profile</a>
-            <a href="home.php">Home</a>
+            <a href="homePage.php">Home</a>
             <a href="logout.php">Log out</a>
         </div>
     <?php else:?>
