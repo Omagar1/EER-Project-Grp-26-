@@ -73,7 +73,7 @@ include_once("navBar.php");
             </form>
             <?php
             }//while loop
-            elseif (isset($_POST['update']) && $_SESSION['userRole']= 'landlord') {
+            if (isset($_POST['update']) && $_SESSION['userRole']== 'landlord') {
                         $stmt = "UPDATE property SET EER=:eer ,postcode=:postcode ,address=:address WHERE propertyID = :pid";
                         $sql = $conn->prepare($stmt);
                         $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
