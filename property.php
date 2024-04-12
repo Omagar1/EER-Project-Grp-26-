@@ -20,10 +20,12 @@ if (isset($_POST['submit']))
     <link rel="stylesheet" href="styles.css">
     <title>Add Property</title>
 </head>
-
 <body>
 
-<div id="display-container">
+<?php include_once "navBar.php"; ?>
+
+
+<div class="display-container">
     <form action="property.php" method="post">
         <label for="postcode">Postcode</label><br>
         <input type="text" name="postcode" required><br><br>
