@@ -73,7 +73,7 @@ if (isset($_POST['signUpSubmit']))
 </div>
 
 <footer class="footer">
-<p>test footer</p>
+<p>EERCalc © Group 26 2024</p>
 </footer>
 
 </body>
