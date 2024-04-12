@@ -44,6 +44,8 @@ if (isset($_POST['signUpSubmit']))
     <title>Sign Up</title>
 </head>
 <body>
+
+<?php include_once "navBar.php"; ?>
     
 <div id="form-container">
     <div id="user-form">

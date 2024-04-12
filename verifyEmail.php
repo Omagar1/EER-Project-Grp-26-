@@ -19,6 +19,8 @@ if (isset($_POST['resendEmailSubmit'])){
 </head>
 <body>
     
+<?php include_once "navBar.php"; ?>
+
 <div id="form-container">
     <div id="user-form">
     <h2>Verify email</h2>
@@ -29,5 +31,10 @@ if (isset($_POST['resendEmailSubmit'])){
         <a href="index.php">Back</a>
 </div>
 </div>
+
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
+
 </body>
 </html>
