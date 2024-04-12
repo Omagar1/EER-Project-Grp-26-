@@ -181,11 +181,10 @@ header {
 /*TEST / TEMPORARY CSS, SELECT OPTION*/
 
 select {
-  padding: 8px 12px;
+  padding: 16px 16px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
-  appearance: none; 
   background-color: white;
 }
