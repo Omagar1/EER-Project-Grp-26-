@@ -38,7 +38,7 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
 
                 $stmt->execute();
                 $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['userID'] = $result['ID'];
+                $_SESSION['userID'] = $result['accountID'];
                 $_SESSION['userRole'] = $result['role'];
                 $_SESSION['username'] = str_replace("."," ",explode("@",$result['email'])[0]);
                 $_SESSION["loggedIn"] = true;
