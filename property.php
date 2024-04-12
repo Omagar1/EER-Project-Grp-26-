@@ -17,12 +17,11 @@ if (isset($_POST['submit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Add Property</title>
 </head>
 
 <body>
-
-<?php include_once "navBar.php"; ?>
 
 <div id="display-container">
     <form action="property.php" method="post">
