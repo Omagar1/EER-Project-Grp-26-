@@ -14,13 +14,14 @@ function loginValidation($conn, $email, $hashPassWord) {
 
         if ($result)
         {
-            $_SESSION['userID'] = $result['ID'];
+            $_SESSION['userID'] = $result['accountID'];
             $_SESSION['userRole'] = $result['role'];
             $_SESSION['username'] = str_replace("."," ",explode("@",$result['email'])[0]);
             $_SESSION["loggedIn"] = true;
 
-            header("location: homePage.php");
-            echo"logged in";
+            header("Location: property.php"); // LOCALHOST
+            // header("location: homePage.php"); // AZURE
+            // echo"logged in"; // AZURE
             exit();
         } else 
         {
