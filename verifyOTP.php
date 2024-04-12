@@ -5,7 +5,7 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 
-$otp_expiry_time = 5 * 60; 
+$otp_expiry_time = 10 * 60; // Code Lasts 10 Minutes
 
 $otp_data = isset($_SESSION['otp_data']) ? $_SESSION['otp_data'] : null;
 
