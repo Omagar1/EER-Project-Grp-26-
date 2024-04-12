@@ -71,5 +71,10 @@ if (isset($_POST['signUpSubmit']))
         <a href="index.php">Back</a>
 </div>
 </div>
+
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
+
 </body>
 </html>

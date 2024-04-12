@@ -20,7 +20,7 @@ include_once("navBar.php");
         <div>
             <?php
                 try{
-                    if (isset($_POST['update']) && $_SESSION['userRole']= 'admin') {
+                    if (isset($_POST['update']) && $_SESSION['userRole']== 'Admin') {
                         $stmt = "UPDATE property SET ownerID=:oid ,EER=:eer ,postcode=:postcode ,address=:address ,reportIssueDate=:rdate WHERE propertyID = :pid";
                         $sql = $conn->prepare($stmt);
                         $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
@@ -73,7 +73,7 @@ include_once("navBar.php");
             </form>
             <?php
             }//while loop
-            if (isset($_POST['update']) && $_SESSION['userRole']== 'landlord') {
+            if (isset($_POST['update']) && $_SESSION['userRole']== 'Landlord') {
                         $stmt = "UPDATE property SET EER=:eer ,postcode=:postcode ,address=:address WHERE propertyID = :pid";
                         $sql = $conn->prepare($stmt);
                         $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
