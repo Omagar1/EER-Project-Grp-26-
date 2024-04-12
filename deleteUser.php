@@ -1,5 +1,6 @@
 <?php
 require("dbConnect.php");
+include_once("navBar.php");
 try{
     if (isset($_POST['delete'])) {
         $stmt = "UPDATE account SET active = 0 WHERE accountID = :aid";
@@ -26,10 +27,10 @@ try{
     <body>
         <div class="display-container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
+        </div>
         <form method="post">
             <input type="submit" value="Delete" name="delete">
-            <a href="viewUser.php">Back</a>
+            <a href="manageUser.php">Back</a>
         </form>
-        </div>
     </body>
 </html>
