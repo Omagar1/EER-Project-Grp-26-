@@ -17,9 +17,15 @@ if (isset($_POST['submit']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Add Property</title>
 </head>
 <body>
+
+<?php include_once "navBar.php"; ?>
+
+
+<div class="property-container">
     <form action="property.php" method="post">
         <label for="postcode">Postcode</label><br>
         <input type="text" name="postcode" required><br><br>
@@ -43,8 +49,12 @@ if (isset($_POST['submit']))
         <div>
             <?php echo $msg; ?>
         </div>
-
     </form>
+</div>
     
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
+
 </body>
 </html>

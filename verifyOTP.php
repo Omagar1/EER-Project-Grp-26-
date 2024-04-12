@@ -24,6 +24,7 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
         
         if ($otp_from_url == $otp) {
             try{
+                $email = $_SESSION["EmailUsed"];
                 // setting verifyEmail to 1 in DB 
                 $sql = "UPDATE account SET verifyEmail = ? WHERE emailAddress = ?";
                 $stmt = $conn->prepare($sql);
@@ -43,29 +44,31 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
                 $_SESSION['username'] = str_replace("."," ",explode("@",$result['email'])[0]);
                 $_SESSION["loggedIn"] = true;
                 if($result['role'] == "Admin"){
-                ?>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <link rel="stylesheet" href="styles.css">
-                    <title>Admin Create Account</title>
-                </head>
-                <body>
-                    
-                <div id="form-container">
-                    <div id="user-form">
-                        <h2>Please Wait for one of our existing Admins To verrify your Account</h2>
+                    ?>
+                    <html lang="en">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <link rel="stylesheet" href="styles.css">
+                        <title>Admin Create Account</title>
+                    </head>
+                    <body>
+                        
+                    <div id="form-container">
+                        <div id="user-form">
+                            <h2>Please Wait for one of our existing Admins To verrify your Account</h2>
+                        </div>
                     </div>
-                </div>
-                </body>
-                </html>
-                <?php
+                    </body>
+                    </html>
+                    <?php
                 }else{
+                    // var_dump($_SESSION);
+                    // var_dump($result);
                     header("location: homePage.php");
                 }
                 
-                echo"logged in";// test 
+                //echo"logged in";// test 
 
 
             } catch (PDOException $e)
