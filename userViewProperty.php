@@ -7,6 +7,7 @@ session_start([
    ]);
 $userid = $_SESSION["userID"];
 include_once("navBar.php");
+include_once("search.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +19,7 @@ include_once("navBar.php");
         <div>
             <?php
             try{
-                if ($_SESSION['userRole']= 'tenant'){
+                if ($_SESSION["userRole"]=="tenant"){
                     $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
@@ -40,7 +41,7 @@ include_once("navBar.php");
                     <?php 
                     }//for while
                 }//for if 
-                elseif ($_SESSION['userRole']= 'landlord'){
+                elseif ($_SESSION["userRole"]== "landlord"){
                     $sql ="Select propertyID,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $sql->bindParam(':uid', $userid, PDO::PARAM_INT);
