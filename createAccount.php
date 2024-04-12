@@ -36,8 +36,9 @@ function createAccount($conn, $email, $hashPassword, $role)
             $stmt1->bindParam(':active', $activeVal , PDO::PARAM_INT);
             $stmt1->execute();
             
-            //header("Location: homePage.php");
-            return "Account created!";
+            $_SESSION["EmailUsed"] = $email; 
+            header("location: verifyEmail.php");
+            return "Account created! Check Your Emails to Verrify and Log in";
         }
     } catch (PDOException $e)
     {

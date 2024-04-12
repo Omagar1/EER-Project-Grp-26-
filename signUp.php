@@ -7,69 +7,12 @@ session_start([
    ]);
 require_once "dbConnect.php";
 require_once "createAccount.php";
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/phpmailer/phpmailer/src/Exception.php';
-require 'vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require 'vendor/phpmailer/phpmailer/src/SMTP.php';
-
-require 'vendor/autoload.php';
-
-function sendEmail()
-{   
-    $otp_data = isset($_SESSION['otp_data']) ? $_SESSION['otp_data'] : null;
-
-    if ($otp_data) {
-        $otp = $otp_data['otp'];
-    } else {
-        echo 'Error: OTP Missing or Invalid';
-        return;
-    }
-
-
-    $mail = new PHPMailer;
-
-    $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'eerapplication@gmail.com';
-    $mail->Password = 'ueicjyqunioaygvq'; 
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 587;
-
-    $mail->setFrom('eerapplication@gmail.com');
-    $mail->addAddress($_POST['signUpEmail']);
-    $mail->Subject = 'Please Verify Your Email';
-    $mail->Body    = 'Please Click On the Link Below to Verify' . 
-        "\nhttps://eercalc.azurewebsites.net/verifyOTP.php?otp=" . $otp;
-
-    if(!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'Message has been sent';
-    }
-}
-
-function updateVerificationStatus($email, $conn)
-{
-    try{
-        $sql = "UPDATE account SET active = ? WHERE email = ?'";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([1,$email]);
-    } catch (PDOException $e)
-    {
-        echo "Error: " . $e->getMessage();
-        return $e;
-    }
-}
+require_once "emailFunctions.php"; 
 
 $msg = "";
 
 if (isset($_POST['signUpSubmit']))
 {    
-     $email = $_POST['signUpEmail'];
 
     $otp = rand(100000, 999999);
     $_SESSION['otp_data'] = array(
@@ -80,7 +23,7 @@ if (isset($_POST['signUpSubmit']))
     
     if ($_POST['signUpPassword'] === $_POST['confirmAccountPassword'])
     {
-        sendEmail();
+        sendEmail($_POST["signUpEmail"]);
         //$msg ="test";
         var_dump($_POST);
         $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
