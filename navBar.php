@@ -1,7 +1,7 @@
 
 <header class="header">
 
-    <?php var_dump($_SESSION)//test?>
+    <?php //var_dump($_SESSION)//test?>
     <?php if(isset($_SESSION["loggedIn"]) And $_SESSION["loggedIn"] == true ):?>
         <div class="header-text">
             <h1>Energy Efficiency Application</h1>
@@ -14,7 +14,7 @@
                     <?php break;
                 case "Landlord":?>
                     <a href="userViewProperty.php">Manage Properties</a>
-                    <a href="addProperty.php">Add New Property</a>
+                    <a href="Property.php">Add New Property</a>
                     <?php break;
                 case "Tenant":?>
                     <a href="userViewProperty.php">Search Properties</a>
