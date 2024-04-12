@@ -25,7 +25,7 @@ if ($otp_data && time() - $otp_data['timestamp'] < $otp_expiry_time) {
         if ($otp_from_url == $otp) {
             try{
                 // setting verrifyEmail to 1 in DB 
-                $sql = "UPDATE account SET verrifyEmail = ? WHERE email = ?";
+                $sql = "UPDATE account SET verrifyEmail = ? WHERE emailAddress = ?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([1,$email]);
 
