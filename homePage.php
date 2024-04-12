@@ -26,15 +26,15 @@ var_dump($_SESSION);
         <h2>Welcome <?php echo $_SESSION['username'];?></h2> 
         <ul>
         <?php switch ($_SESSION["userRole"]):
-            case "admin":?>
+            case "Admin":?>
                 <li><a href="manageUser.php">Manage Users</a></li>
                 <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break;
-            case "landlord":?>
+            case "Landlord":?>
                 <li><a href="#addNewPropperty.php">Add New Property</a></li>
                 <li><a href="#manageProperty.php">Manage Properties</a></li>
                 <?php break; 
-            case "tenants "?>
+            case "Tenant":?>
                 <li><a href="veiwPropperties.php">View</a></li>
                 <li><a href="veiwSavedPropperties.php">View Saved</a></li>
                 <?php break;
