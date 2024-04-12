@@ -24,12 +24,12 @@ try{
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div>
+        <div class="display-container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
-        </div>
         <form method="post">
             <input type="submit" value="Delete" name="delete">
             <a href="viewUser.php">Back</a>
         </form>
+        </div>
     </body>
 </html>

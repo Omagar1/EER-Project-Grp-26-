@@ -9,8 +9,12 @@ include_once("navBar.php");
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
+
+
+        <div class="container">
         <div>
             <h2>View Users</h2>
+            <div class="table-wrapper">
         <table>
         <thead>
             <tr>
@@ -45,5 +49,10 @@ include_once("navBar.php");
         </tbody>
         </table>
         </div>
+        </div>
+        </div>
+
+
+
     </body>
 </html>
