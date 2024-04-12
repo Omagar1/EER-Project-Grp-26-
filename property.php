@@ -25,7 +25,7 @@ if (isset($_POST['submit']))
 <?php include_once "navBar.php"; ?>
 
 
-<div class="display-container">
+<div class="property-container">
     <form action="property.php" method="post">
         <label for="postcode">Postcode</label><br>
         <input type="text" name="postcode" required><br><br>
