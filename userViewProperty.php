@@ -19,7 +19,7 @@ $userid = $_SESSION["userID"];
         <div>
             <?php
 
-            try{
+            // try{
                 if (isset($_SESSION['userRole'])){
                 echo $_SESSION['userRole'];
                 if ($_SESSION["userRole"]=="Tenant"){
@@ -64,9 +64,9 @@ $userid = $_SESSION["userID"];
                     }//for while loop
                 }//for else if
             }//if isset
-            }catch(PDOException $e){
-                echo $e;
-            }
+            // }catch(PDOException $e){
+            //     echo $e;
+            // }
             ?>
         </div>
     </body>
