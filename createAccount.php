@@ -20,7 +20,7 @@ function createAccount($conn, $email, $hashPassword, $role)
         } else
         {
 
-            $sql1 = 'INSERT INTO account (emailAddress, password, role) VALUES (:email, :password, :role);';
+            $sql1 = 'INSERT INTO account (emailAddress, password, role, active) VALUES (:email, :password, :role, :active);';
             $stmt1 = $conn->prepare($sql1);
             //
             $stmt1->bindParam(':email', $email, PDO::PARAM_STR);
