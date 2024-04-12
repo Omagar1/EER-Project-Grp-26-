@@ -176,4 +176,5 @@ footer {
   margin-top: auto; 
   width: 100%;
   overflow: hidden;
+  border-top: 2px solid #adada9; 
 }
