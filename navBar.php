@@ -9,16 +9,16 @@
         <div class="header-buttons">
             <?php switch ($_SESSION["userRole"]):
                 case "admin" :?>
-                    <a href="manageProperties.php">Manage Properties</a>
+                    <a href="manageProperty.php">Manage Properties</a>
                     <a href="placeholder.php">Add New Property</a>
                     <?php break;
                 case "landlord":?>
-                    <a href="manageProperties.php">Manage Properties</a>
+                    <a href="userViewProperty.php">Manage Properties</a>
                     <a href="placeholder.php">Add New Property</a>
                     <?php break;
                 case "tenant":?>
-                    <a href="viewProperty.php">Search Properties</a>
-                    <a href="veiwSavedProperty.php">Veiw Saved Properties</a>
+                    <a href="userViewProperty.php">Search Properties</a>
+                    <a href="viewSavedProperty.php">View Saved Properties</a>
                     <?php break;
             endswitch?>
             <a href="#manageAccount.php">View Profile</a>
