@@ -71,5 +71,10 @@ if (isset($_POST['signUpSubmit']))
         <a href="index.php">Back</a>
 </div>
 </div>
+
+<footer class="footer">
+<p>test footer</p>
+</footer>
+
 </body>
 </html>
