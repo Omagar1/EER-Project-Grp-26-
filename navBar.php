@@ -1,7 +1,7 @@
 
 <header class="header">
 
-    
+    <?php var_dump($_SESSION)//test?>
     <?php if(isset($_SESSION["loggedIn"]) And $_SESSION["loggedIn"] == true ):?>
         <div class="header-text">
             <h1>Energy Efficiency Application</h1>

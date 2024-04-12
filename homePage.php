@@ -6,7 +6,7 @@ session_start([
    ]);
 require_once "dbConnect.php";
 require_once "notLoggedIn.php";
-$_SESSION["userRole"] = "admin"; //test
+//$_SESSION["userRole"] = "admin"; //test
 var_dump($_SESSION);
 
 ?>
