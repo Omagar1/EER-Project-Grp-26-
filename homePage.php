@@ -42,5 +42,10 @@ var_dump($_SESSION);
         <li><a href="#manageAccount.php">manage My Account</a></li>
         </ul>
     </div>
+
+<footer class="footer">
+<p>EERCalc © Group 26 2024</p>
+</footer>
+
 </body>
 </html>
