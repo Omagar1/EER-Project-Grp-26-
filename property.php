@@ -4,7 +4,7 @@ require_once 'dbConnect.php';
 require_once 'calc.php';
 require_once 'addProperty.php';
 
-var_dump($_SESSION);
+//var_dump($_SESSION);test
 
 $msg = "";
 
