@@ -28,15 +28,15 @@ require_once "notLoggedIn.php";
         <?php switch ($_SESSION["userRole"]):
             case "Admin":?>
                 <li><a href="manageUser.php">Manage Users</a></li>
-                <li><a href="#manageProperty.php">Manage Properties</a></li>
+                <li><a href="manageProperty.php">Manage Properties</a></li>
                 <?php break;
             case "Landlord":?>
-                <li><a href="#addNewProperty.php">Add New Property</a></li>
-                <li><a href="userViewProperty.php">Manage Properties</a></li>
+                <li><a href="Property.php">Add New Property</a></li>
+                <li><a href="manageProperty.php">Manage Properties</a></li>
                 <?php break; 
             case "Tenant":?>
-                <li><a href="userViewProperty.php">View</a></li>
-                <li><a href="viewSavedProperty.php">View Saved</a></li>
+                <li><a href="userViewProperty.php">Search Properties</a></li>
+                <li><a href="viewSavedProperty.php">View Saved Properties</a></li>
                 <?php break;
         endswitch;?>
         <li><a href="#manageAccount.php">manage My Account</a></li>

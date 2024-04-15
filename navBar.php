@@ -9,7 +9,7 @@
         <div class="header-buttons">
             <?php switch ($_SESSION["userRole"]):
                 case "Admin" :?>
-                    <a href="manageProperty.php">Manage Properties</a>
+                    <a href="userViewProperty.php">Manage Properties</a>
                     <a href="placeholder.php">Add New Property</a>
                     <?php break;
                 case "Landlord":?>
