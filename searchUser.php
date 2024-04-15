@@ -6,7 +6,7 @@ include_once("search.php");
 $search = $_POST['search'];
 $column = $_POST['column'];
 if (isset($_POST['searchButton'])) {
-    $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=True ORDER BY accountID ASC;";
+    $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
     $result = $conn->prepare($sql);
     $result->execute();
 
