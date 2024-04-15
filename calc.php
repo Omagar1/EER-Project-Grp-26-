@@ -1,7 +1,7 @@
 <?php
 function EERCalc($tfa, $lc, $hc, $hwc)
 {
-    $ecd = 0.42;
+    $ecd = 0.21;
     $tec = $lc + $hc + $hwc;
     $ecf = 0;
     $ecf = $ecd * ( $tec / ( $tfa + 45 ));
