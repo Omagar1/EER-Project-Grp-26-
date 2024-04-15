@@ -1,4 +1,8 @@
 <?php
+session_start([ 
+    'cookie_lifetime' => 3600, 
+    'gc_maxlifetime' => 3600, 
+   ]);
 require("dbConnect.php");
 include_once("navBar.php");
 ?>
@@ -9,8 +13,14 @@ include_once("navBar.php");
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-
-
+        <form action="searchUser.php" method="post">
+            <input type="text" name="search">
+            Search by:  <select name="column">
+                        <option value="accountID">Account ID</option>
+                        <option value="emailAddress">Email</option>
+                        </select>
+                        <input type ="submit" name="searchButton" value="Search">
+        </form>
         <div class="container">
         <div>
             <h2>View Users</h2>
@@ -28,7 +38,7 @@ include_once("navBar.php");
         <tbody>
             <?php
             try{
-            $sql = "SELECT accountID, emailAddress, dateCreated, role FROM account WHERE active = 1 ORDER BY accountID ASC;";
+            $sql = "SELECT accountID,emailAddress,dateCreated,role FROM account WHERE active=1 ORDER BY accountID ASC;";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -51,8 +61,8 @@ include_once("navBar.php");
         </div>
         </div>
         </div>
-
-
-
     </body>
+    <footer class="footer">
+    <p>EERCalc © Group 26 2024</p>
+    </footer>
 </html>

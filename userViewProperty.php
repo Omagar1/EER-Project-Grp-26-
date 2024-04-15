@@ -6,7 +6,7 @@ session_start([
    ]);
 require("dbConnect.php");
 include_once("navBar.php");
-include_once("search.php");
+// include_once("search.php");
 $userid = $_SESSION["userID"];
 ?>
 <!DOCTYPE html>
@@ -20,8 +20,8 @@ $userid = $_SESSION["userID"];
             <?php
 
             try{
-                if (isset($_SESSION['userRole'])){
-                echo $_SESSION['userRole'];
+                // if (isset($_SESSION['userRole'])){
+                // echo $_SESSION['userRole'];
                 if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
@@ -47,7 +47,7 @@ $userid = $_SESSION["userID"];
                 elseif ($_SESSION["userRole"]== "Landlord"){
                     $sql ="Select propertyID,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
-                    $sql->bindParam(':uid', $userid, PDO::PARAM_INT);
+                    $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
@@ -63,7 +63,7 @@ $userid = $_SESSION["userID"];
             <?php
                     }//for while loop
                 }//for else if
-            }//if isset
+            // }//if isset
             }catch(PDOException $e){
                 echo $e;
             }
