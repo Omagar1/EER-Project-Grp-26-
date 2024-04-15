@@ -4,6 +4,8 @@ require_once 'dbConnect.php';
 require_once 'calc.php';
 require_once 'addProperty.php';
 
+var_dump($_SESSION);
+
 $msg = "";
 
 if (isset($_POST['submit']))
