@@ -35,16 +35,16 @@ if (isset($_POST['submit']))
         <input type="text" name="address" required><br><br>
 
         <label for="tfa">Total Floor Area</label><br>
-        <input type="text" name="tfa"><br><br>
+        <input type="text" name="tfa" required><br><br>
 
         <label for="lc">Lighting Cost</label><br>
-        <input type="text" name="lc"><br><br>
+        <input type="text" name="lc" required><br><br>
         
         <label for="hc">Heating Cost</label><br>
-        <input type="text" name="hc"><br><br>
+        <input type="text" name="hc" required><br><br>
         
         <label for="hwc">Hot Water Cost</label><br>
-        <input type="text" name="hwc"><br><br>
+        <input type="text" name="hwc" required><br><br>
         
         <input type="submit" name="submit"><br><br>
         <div>

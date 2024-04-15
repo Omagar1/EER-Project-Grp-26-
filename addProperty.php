@@ -22,9 +22,9 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address)
     $stmt2->bindParam(':reportIssueDate', $currentDate, PDO::PARAM_INT);
     
     $stmt1->execute();
-    return "Test";
+    
     $result = $stmt1->fetch(PDO::FETCH_ASSOC);
-
+    return "Test";
     if ($result)
     {
         return "Property already exists.";
