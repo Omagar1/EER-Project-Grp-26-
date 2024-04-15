@@ -14,13 +14,13 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address)
 
     $stmt1->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt1->bindParam(':postcode', $postcode, PDO::PARAM_STR);
-    return "Test";
+    
     $stmt2->bindParam(':ownerID', $ownerID, PDO::PARAM_STR);
     $stmt2->bindParam(':EER', $EER, PDO::PARAM_STR);
     $stmt2->bindParam(':postcode', $postcode, PDO::PARAM_STR);
     $stmt2->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt2->bindParam(':reportIssueDate', $currentDate, PDO::PARAM_INT);
-
+    return "Test";
     $stmt1->execute();
 
     $result = $stmt1->fetch(PDO::FETCH_ASSOC);
