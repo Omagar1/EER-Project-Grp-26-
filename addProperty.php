@@ -20,9 +20,9 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address)
     $stmt2->bindParam(':postcode', $postcode, PDO::PARAM_STR);
     $stmt2->bindParam(':address', $address, PDO::PARAM_STR);
     $stmt2->bindParam(':reportIssueDate', $currentDate, PDO::PARAM_INT);
-    return "Test";
+    
     $stmt1->execute();
-
+    return "Test";
     $result = $stmt1->fetch(PDO::FETCH_ASSOC);
 
     if ($result)
