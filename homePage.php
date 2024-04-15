@@ -39,7 +39,7 @@ require_once "notLoggedIn.php";
                 <li><a href="viewSavedProperty.php">View Saved Properties</a></li>
                 <?php break;
         endswitch;?>
-        <li><a href="#manageAccount.php">manage My Account</a></li>
+        <li><a href="manageAccount.php">manage My Account</a></li>
         </ul>
     </div>
 

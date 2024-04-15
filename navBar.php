@@ -21,7 +21,7 @@
                     <a href="viewSavedProperty.php">View Saved Properties</a>
                     <?php break;
             endswitch?>
-            <a href="#manageAccount.php">View Profile</a>
+            <a href="manageAccount.php">View Profile</a>
             <a href="homePage.php">Home</a>
             <a href="logout.php">Log out</a>
         </div>
