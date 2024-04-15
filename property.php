@@ -8,8 +8,7 @@ $msg = "";
 
 if (isset($_POST['submit']))
 {
-    $EER = EERCalc($_POST['tfa'],$_POST['lc'],$_POST['hc'])
-    $msg = addProperty($conn, $_SESSION['userID'], $EER, $_POST['hwc']), $_POST['postcode'], $_POST['address']);
+    $msg = addProperty($conn, $_SESSION['userID'], EERCalc($_POST['tfa'],$_POST['lc'],$_POST['hc'], $_POST['hwc']), $_POST['postcode'], $_POST['address']);
 }
 ?>
 
