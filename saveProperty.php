@@ -8,11 +8,11 @@ session_start([
 $userid = $_SESSION["userID"];
 try{
     if (isset($_POST['save'])) {
-        $stmt = "INSERT INTO (userID,propertyID)VALUES(:uid,:pid)";
-        $sql = $conn->prepare($stmt);
-        $sql->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
-        $sql->bindParam(':uid', $userid, PDO::PARAM_INT);
-        $sql->execute();
+        $sql = "INSERT INTO userSavedProperty (userID,propertyID)VALUES(:uid,:pid)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
+        $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
     }
 }catch(PDOException $e){
     echo $e;
