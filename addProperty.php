@@ -24,7 +24,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address)
     $stmt1->execute();
     
     $result = $stmt1->fetch(PDO::FETCH_ASSOC);
-    return "Test";
+    
     if ($result)
     {
         return "Property already exists.";
