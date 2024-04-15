@@ -1,6 +1,7 @@
 <?php
 require("dbConnect.php");
 include_once("navBar.php");
+include_once("search.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,4 +53,7 @@ include_once("navBar.php");
         </table>
         </div>
     </body>
+    <footer class="footer">
+    <p>EERCalc © Group 26 2024</p>
+    </footer>
 </html>

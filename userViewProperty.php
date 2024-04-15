@@ -20,8 +20,8 @@ $userid = $_SESSION["userID"];
             <?php
 
             try{
-                if (isset($_SESSION['userRole'])){
-                echo $_SESSION['userRole'];
+                // if (isset($_SESSION['userRole'])){
+                // echo $_SESSION['userRole'];
                 if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
@@ -63,7 +63,7 @@ $userid = $_SESSION["userID"];
             <?php
                     }//for while loop
                 }//for else if
-            }//if isset
+            // }//if isset
             }catch(PDOException $e){
                 echo $e;
             }
