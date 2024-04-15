@@ -6,7 +6,7 @@ session_start([
    ]);
 require("dbConnect.php");
 include_once("navBar.php");
-include_once("search.php");
+// include_once("search.php");
 $userid = $_SESSION["userID"];
 ?>
 <!DOCTYPE html>

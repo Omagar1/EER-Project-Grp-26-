@@ -1,7 +1,7 @@
 <?php
 require("dbConnect.php");
 include_once("navBar.php");
-include_once("search.php");
+// include_once("search.php");
 ?>
 <!DOCTYPE html>
 <html>
