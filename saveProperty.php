@@ -14,6 +14,7 @@ try{
         $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
         $stmt->execute();
     }
+    header("location: userViewProperty.php");
 }catch(PDOException $e){
     echo $e;
 }
