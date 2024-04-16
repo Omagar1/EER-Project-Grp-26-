@@ -50,7 +50,7 @@ $vals = array(
 
 foreach($vals as $property){
 	//var_dump($property);
-	echo EERCalc($property[0], $property[1], $property[2], $property[3]). "\n";
+	echo EERCalc($property[0], $property[1], $property[2], $property[3]). "</br>";
 }
 
 
