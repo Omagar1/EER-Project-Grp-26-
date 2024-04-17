@@ -52,6 +52,7 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
+        <?php var_dump($row['EER'])?>
         <div class="<?php echo ratingTocolour($row["EER"])?>">
             <?php
 
