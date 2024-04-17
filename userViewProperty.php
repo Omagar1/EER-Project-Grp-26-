@@ -95,7 +95,9 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
+                    echo $stmt->rowCount();//test
                     if ($stmt->rowCount() > 0){
+                        
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                         ?>
                         <div>
