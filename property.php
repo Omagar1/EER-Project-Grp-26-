@@ -35,13 +35,14 @@ if (isset($_POST['submit']))
         
         <label for="address">Address</label><br>
         <input type="text" name="address" required><br><br>
-        
+
+        <label for="address">Address</label><br>
         <select name="propertyType">
             <option value="House">House</option>
             <option value="Flat">Flat</option>
             <option value="Maisonette">Maisonette</option>
             <option value="Bungalow">Bungalow</option>
-        </select>
+        </select><br>
 
         <label for="tfa">Total Floor Area</label><br>
         <input type="text" name="tfa" required><br><br>
