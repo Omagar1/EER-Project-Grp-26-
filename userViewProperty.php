@@ -13,7 +13,9 @@ $userid = $_SESSION["userID"];
 
 <?php
  function ratingTocolour($eerInput){
-               
+         
+    echo $eerInput;
+
     $ratingColour = "";
 
     switch($eerInput){
@@ -39,6 +41,7 @@ $userid = $_SESSION["userID"];
             $ratingColour = "view-c60909-container";
             return $ratingColour;
         }
+    
 }
 ?>
 
