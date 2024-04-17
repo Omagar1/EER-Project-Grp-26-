@@ -10,6 +10,41 @@ include_once("navBar.php");
 require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 ?>
+
+<?php
+ function ratingTocolour($eerInput){
+         
+    echo $eerInput;
+
+    $ratingColour = "";
+
+    switch($eerInput){
+        case "A":
+            $ratingColour = "view-0ab654-container";
+            return $ratingColour;
+        case "B":
+            $ratingColour = "view-f0ee07-container";
+            return $ratingColour;
+        case "C":
+            $ratingColour = "view-f7911a-container";
+            return $ratingColour;
+        case "D":
+            $ratingColour = "view-ca7b1e-container";
+            return $ratingColour;
+        case "E":
+            $ratingColour = "view-ca4d1e-container";
+            return $ratingColour;
+        case "F":
+            $ratingColour = "view-ca1e1e-container";
+            return $ratingColour;
+        case "G":
+            $ratingColour = "view-c60909-container";
+            return $ratingColour;
+        }
+    
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,38 +52,7 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div class="<?php echo ratingTocolour($row["EER"])?>">
             <?php
-
-            function ratingTocolour($eerInput){
-               
-                $ratingColour = "";
-
-                switch($eerInput){
-                    case "A":
-                        $ratingColour = "view-0ab654-container";
-                        return $ratingColour;
-                    case "B":
-                        $ratingColour = "view-f0ee07-container";
-                        return $ratingColour;
-                    case "C":
-                        $ratingColour = "view-f7911a-container";
-                        return $ratingColour;
-                    case "D":
-                        $ratingColour = "view-ca7b1e-container";
-                        return $ratingColour;
-                    case "E":
-                        $ratingColour = "view-ca4d1e-container";
-                        return $ratingColour;
-                    case "F":
-                        $ratingColour = "view-ca1e1e-container";
-                        return $ratingColour;
-                    case "G":
-                        $ratingColour = "view-c60909-container";
-                        return $ratingColour;
-                    }
-            }
-
 
 
             /*color values
@@ -63,14 +67,15 @@ $userid = $_SESSION["userID"];
 
             */
 
-            try{
+            try{    
                 if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                    var_dump($row['EER']);
                     ?>
-                    <!--<div class="<?php /*echo ratingTocolour($row["EER"])*/?>">-->
+                <div class="<?php echo ratingTocolour($row["EER"])?>">
                     <div>
                         <div>
                             Property Type: <?php echo $row["propertyType"]?><br>
@@ -93,8 +98,9 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
-                    if ($stmt->rowCount() > 0){
+                        
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                            if (isset($row)){
                         ?>
                         <div>
                             <div>
@@ -107,11 +113,11 @@ $userid = $_SESSION["userID"];
                             </div>
                         </div>
             <?php
+                            }//if
+                            else{
+                                echo"There is no property added yet.";
+                            }
                         }//for while loop
-                    }//if stmt
-                    else{
-                        echo"There is no property added yet.";
-                    }
                 }//for else if
             // }//if isset
             }catch(PDOException $e){
