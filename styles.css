@@ -350,10 +350,10 @@ select {
 
 .property-table-wrapper {
   background-color: white;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 5px;
+  border-radius: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .property-table-wrapper table {
@@ -363,14 +363,14 @@ select {
 
 .property-table-wrapper table th {
   background-color: #fbfdea;
-  padding: 25px;
-  font-size: 24px;
+  padding: 15px;
+  font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 
 .property-table-wrapper table td {
-  padding: 25px;
+  padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 14px;
 }
