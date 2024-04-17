@@ -5,7 +5,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address,  $propertyType)
     try{
         $currentDate = date('Y-m-d');
 
-        $sql1 = "SELECT * FROM property WHERE address = :address AND postcode = :postcode;";
+        $sql1 = "SELECT * FROM property WHERE address = :address";
 
         $stmt1 = $conn->prepare($sql1);
 
@@ -26,7 +26,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address,  $propertyType)
             return "Property already exists.";
         } else 
         {
-            $sql2 = "INSERT INTO property (ownerID, EER, postcode, address, addressChanged, addressChangedBy, reportIssueDate) VALUES (:ownerID, :EER, :postcode, :address, :addressChanged, :addressChangedBy, :reportIssueDate)";
+            $sql2 = "INSERT INTO property (ownerID, EER, postcode, address, addressChanged, addressChangedBy, propertyType, reportIssueDate) VALUES (:ownerID, :EER, :postcode, :address, :addressChanged, :addressChangedBy, :propertyType, :reportIssueDate)";
 
             $stmt2 = $conn->prepare($sql2);
             $stmt2->bindParam(':ownerID', $ownerID, PDO::PARAM_INT);
