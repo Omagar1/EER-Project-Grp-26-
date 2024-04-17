@@ -14,8 +14,6 @@ $userid = $_SESSION["userID"];
 <?php
  function ratingTocolour($eerInput){
          
-    echo $eerInput;
-
     $ratingColour = "";
 
     switch($eerInput){
