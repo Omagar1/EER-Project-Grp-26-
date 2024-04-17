@@ -40,6 +40,9 @@ $userid = $_SESSION["userID"];
         case "G":
             $ratingColour = "view-c60909-container";
             return $ratingColour;
+        default:
+            $ratingColour = "display-container";
+            return $ratingColour;
         }
     
 }
