@@ -8,7 +8,7 @@ require("dbConnect.php");
 include_once("navBar.php");
 try{
     $msg = "";
-    $userID = $_SESSION["accountID"];
+    $userID = $_SESSION["userID"];
     $currentDate = date("Y-m-d");
     if (isset($_POST['update']) && $_SESSION['userRole']== 'Admin') {
 
