@@ -11,18 +11,16 @@ try{
     $result->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
     $result->bindParam(':uid', $userid, PDO::PARAM_INT);
     $result->execute();
-    if ($result->rowCount() == 0) {
-        if (isset($_POST['save'])) {
-            $sql = "INSERT INTO userSavedProperty (userID,propertyID)VALUES(:uid,:pid)";
-            $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
-            $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
-            $stmt->execute();
-        }
-    }else{
-        if (isset($_POST['save'])) {
-            echo"Already saved";
-        }
+    $row= $result->fetch(PDO::FETCH_ASSOC);
+    if (isset($_POST['save']) && isset($row)) {
+        echo"Already saved";
+    }
+    else{
+        $sql = "INSERT INTO userSavedProperty (userID,propertyID)VALUES(:uid,:pid)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
+        $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
+        $stmt->execute();
     }
     header("location: userViewProperty.php");
 }catch(PDOException $e){
