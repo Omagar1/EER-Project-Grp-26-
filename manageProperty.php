@@ -11,7 +11,7 @@ require_once "notLoggedIn.php";
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div>
+        <div class="table-wrapper">
             <h2>View Properties</h2>
         <table>
         <thead>
