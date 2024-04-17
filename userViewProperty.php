@@ -73,7 +73,6 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-                    var_dump($row['EER']);
                     ?>
                 <div class="<?php echo ratingTocolour($row["EER"])?>">
                     <div>
@@ -101,6 +100,8 @@ $userid = $_SESSION["userID"];
                         
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                             if (isset($row)){
+                                 var_dump($row['EER']);
+                            
                         ?>
                         <div class="<?php echo ratingTocolour($row["EER"])?>">
                             <div>
