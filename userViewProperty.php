@@ -95,11 +95,9 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
-                    echo "heibh";//test
-                    echo $stmt->rowCount();//test
-                    if ($stmt->rowCount() > 0){
                         
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                            if (isset($row)){
                         ?>
                         <div>
                             <div>
@@ -112,11 +110,11 @@ $userid = $_SESSION["userID"];
                             </div>
                         </div>
             <?php
+                            }//if
+                            else{
+                                echo"There is no property added yet.";
+                            }
                         }//for while loop
-                    }//if stmt
-                    else{
-                        echo"There is no property added yet.";
-                    }
                 }//for else if
             // }//if isset
             }catch(PDOException $e){
