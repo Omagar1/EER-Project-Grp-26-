@@ -4,6 +4,7 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 require("dbConnect.php");
+require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 try{
     $sql1 = "SELECT userID,propertyID FROM userSavedProperty WHERE userID=:uid,propertyID=:pid";

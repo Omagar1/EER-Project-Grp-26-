@@ -1,6 +1,7 @@
 <?php
 require("dbConnect.php");
 include_once("navBar.php");
+require_once "notLoggedIn.php";
 try{
     if (isset($_POST['delete'])) {
         $stmt = "UPDATE account SET active = 0 WHERE accountID = :aid";

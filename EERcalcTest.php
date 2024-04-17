@@ -3,6 +3,7 @@
 <body>
 
 <?php
+require_once "notLoggedIn.php";
 function EERCalc($tfa, $lc, $hc, $hwc)
 {
     $ecd = 0.21;

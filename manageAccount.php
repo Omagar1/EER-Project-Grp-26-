@@ -3,6 +3,7 @@ ob_start();
 session_start();
 require_once "dbConnect.php";
 require_once "changeDetails.php";
+require_once "notLoggedIn.php";
 
 $msg = "";
 

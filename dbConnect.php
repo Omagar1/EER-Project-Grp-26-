@@ -1,9 +1,13 @@
 <?php
+
+require_once "notLoggedIn.php";
 //echo "why?"; //test
 $servername = "tcp:eer-sever.database.windows.net,1433";//eer-sever
 $username = "EER-admin"; //crrzbzscbr
 $password = "ER4sever!"; //ER4sever!
-$dbname = "eer-db"; 
+$dbname = "eer-db";
+
+
 //sqlsrv:server = tcp:eer-sever.database.windows.net,1433
 //$conn = new PDO("sqlsrv:server = tcp:eer-sever.database.windows.net,1433; Database = eer-db", "EER-admin", "{your_password_here}");
 try {
