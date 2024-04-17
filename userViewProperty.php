@@ -17,7 +17,7 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div> <!-- view property container -->
+        <div class="<?php echo ratingTocolour($row["EER"])?>">
             <?php
 
             function ratingTocolour($eerInput){
@@ -70,7 +70,8 @@ $userid = $_SESSION["userID"];
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
-                    <div class="<?php echo ratingTocolour($row["EER"])?>">
+                    <!--<div class="<?php /*echo ratingTocolour($row["EER"])*/?>">-->
+                    <div>
                         <div>
                             Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
