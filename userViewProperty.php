@@ -20,16 +20,15 @@ $userid = $_SESSION["userID"];
             <?php
 
             try{
-                // if (isset($_SESSION['userRole'])){
-                // echo $_SESSION['userRole'];
                 if ($_SESSION["userRole"]=="Tenant"){
-                    $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
+                    $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
                     <div>
                         <div>
+                            Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
                             Postcode: <?php echo $row["postcode"]?><br>
                             Address: <?php echo $row["address"]?><br>
@@ -45,7 +44,7 @@ $userid = $_SESSION["userID"];
                     }//for while
                 }//for if 
                 elseif ($_SESSION["userRole"]== "Landlord"){
-                    $sql ="Select propertyID,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
+                    $sql ="Select propertyID,propertyType,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
@@ -53,6 +52,7 @@ $userid = $_SESSION["userID"];
                     ?>
                     <div>
                         <div>
+                            Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
                             Postcode: <?php echo $row["postcode"]?><br>
                             Address: <?php echo $row["address"]?><br>
