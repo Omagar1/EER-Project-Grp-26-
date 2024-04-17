@@ -223,6 +223,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*B rating*/
@@ -242,6 +243,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*C rating*/
@@ -261,6 +263,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*D rating*/
@@ -280,6 +283,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*E rating*/
@@ -299,6 +303,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*F rating*/
@@ -318,6 +323,7 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
 /*G rating*/
@@ -337,5 +343,34 @@ select {
   border: 2px solid #adada9; 
   margin-bottom: 90px;
   margin-top: 180px;
+  color: white;
 }
 
+/* displaying properties table test*/
+
+.property-table-wrapper {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.property-table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.property-table-wrapper table th {
+  background-color: #fbfdea;
+  padding: 25px;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.property-table-wrapper table td {
+  padding: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
