@@ -16,7 +16,7 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div>
+        <div class="property-container">
             <?php
 
             try{
