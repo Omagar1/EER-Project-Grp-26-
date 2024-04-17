@@ -1,5 +1,6 @@
 <?php
 require("dbConnect.php");
+require_once "notLoggedIn.php";
 // Values are in seconds // lasts an hour
 session_start([ 
     'cookie_lifetime' => 3600, 

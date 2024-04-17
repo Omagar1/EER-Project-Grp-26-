@@ -2,6 +2,7 @@
 require("dbConnect.php");
 include_once("navBar.php");
 // include_once("search.php");
+require_once "notLoggedIn.php";
 ?>
 <!DOCTYPE html>
 <html>

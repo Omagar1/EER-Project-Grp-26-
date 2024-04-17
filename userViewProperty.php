@@ -7,6 +7,7 @@ session_start([
 require("dbConnect.php");
 include_once("navBar.php");
 // include_once("search.php");
+require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 ?>
 <!DOCTYPE html>

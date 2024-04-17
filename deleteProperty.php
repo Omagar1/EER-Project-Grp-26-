@@ -6,6 +6,7 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 include_once("navBar.php");
+require_once "notLoggedIn.php";
 try{
     if (isset($_POST['delete'])) {
         $stmt = "DELETE FROM property WHERE propertyID = :pid";
