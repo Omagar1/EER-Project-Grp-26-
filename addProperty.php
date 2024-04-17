@@ -43,7 +43,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address,  $propertyType)
         }
     }catch(PDOException $e) {
         echo "Error: " . $e; // dispable after development
-        return "Error: " . $e;
+        return "Error";
     }
 }
 ?>
