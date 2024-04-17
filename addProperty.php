@@ -9,13 +9,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address,  $propertyType)
 
         $stmt1 = $conn->prepare($sql1);
 
-
-            
-
         $stmt1->bindParam(':address', $address, PDO::PARAM_STR);
-        $stmt1->bindParam(':postcode', $postcode, PDO::PARAM_STR);
-
-
 
         $stmt1->execute();
 
