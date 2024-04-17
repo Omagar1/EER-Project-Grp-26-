@@ -353,7 +353,8 @@ select {
   padding: 5px;
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .property-table-wrapper table {
@@ -363,14 +364,14 @@ select {
 
 .property-table-wrapper table th {
   background-color: #fbfdea;
-  padding: 15px;
-  font-size: 10px;
+  padding: 6px;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 
 .property-table-wrapper table td {
-  padding: 15px;
+  padding: 8px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
