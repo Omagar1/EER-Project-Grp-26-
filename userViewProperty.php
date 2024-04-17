@@ -95,6 +95,7 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
+                    echo "heibh";//test
                     echo $stmt->rowCount();//test
                     if ($stmt->rowCount() > 0){
                         
