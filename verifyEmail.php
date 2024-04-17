@@ -1,5 +1,6 @@
 <?php
-require_once "emailFunctions.php"; 
+require_once "emailFunctions.php";
+
 
 if (isset($_POST['resendEmailSubmit'])){
     sendEmail($_SESSION["EmailUsed"]);

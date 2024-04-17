@@ -7,8 +7,44 @@ session_start([
 require("dbConnect.php");
 include_once("navBar.php");
 // include_once("search.php");
+require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 ?>
+
+<?php
+ function ratingTocolour($eerInput){
+         
+    echo $eerInput;
+
+    $ratingColour = "";
+
+    switch($eerInput){
+        case "A":
+            $ratingColour = "view-0ab654-container";
+            return $ratingColour;
+        case "B":
+            $ratingColour = "view-f0ee07-container";
+            return $ratingColour;
+        case "C":
+            $ratingColour = "view-f7911a-container";
+            return $ratingColour;
+        case "D":
+            $ratingColour = "view-ca7b1e-container";
+            return $ratingColour;
+        case "E":
+            $ratingColour = "view-ca4d1e-container";
+            return $ratingColour;
+        case "F":
+            $ratingColour = "view-ca1e1e-container";
+            return $ratingColour;
+        case "G":
+            $ratingColour = "view-c60909-container";
+            return $ratingColour;
+        }
+    
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,20 +52,33 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div>
             <?php
 
-            try{
-                // if (isset($_SESSION['userRole'])){
-                // echo $_SESSION['userRole'];
+
+            /*color values
+            
+            A - 0ab654
+            B - f0ee07
+            C - f7911a
+            D - ca7b1e
+            E - ca4d1e
+            F - ca1e1e
+            G - c60909
+
+            */
+
+            try{    
                 if ($_SESSION["userRole"]=="Tenant"){
-                    $sql ="Select propertyID,EER,postcode,address FROM property ORDER BY propertyID ASC;";
+                    $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                    var_dump($row['EER']);
                     ?>
+                <div class="<?php echo ratingTocolour($row["EER"])?>">
                     <div>
                         <div>
+                            Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
                             Postcode: <?php echo $row["postcode"]?><br>
                             Address: <?php echo $row["address"]?><br>
@@ -45,23 +94,30 @@ $userid = $_SESSION["userID"];
                     }//for while
                 }//for if 
                 elseif ($_SESSION["userRole"]== "Landlord"){
-                    $sql ="Select propertyID,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
+                    $sql ="Select propertyID,propertyType,EER,postcode,address FROM property WHERE ownerID=:uid ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
-                    while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-                    ?>
-                    <div>
-                        <div>
-                            Energy efficiency rating: <?php echo $row["EER"]?><br>
-                            Postcode: <?php echo $row["postcode"]?><br>
-                            Address: <?php echo $row["address"]?><br>
-                            <a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a>
-                            <a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a>
+                        
+                        while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                            if (isset($row)){
+                        ?>
+                        <div class="<?php echo ratingTocolour($row["EER"])?>">
+                            <div>
+                                Property Type: <?php echo $row["propertyType"]?><br>
+                                Energy efficiency rating: <?php echo $row["EER"]?><br>
+                                Postcode: <?php echo $row["postcode"]?><br>
+                                Address: <?php echo $row["address"]?><br>
+                                <a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a>
+                                <a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a>
+                            </div>
                         </div>
-                    </div>
             <?php
-                    }//for while loop
+                            }//if
+                            else{
+                                echo"There is no property added yet.";
+                            }
+                        }//for while loop
                 }//for else if
             // }//if isset
             }catch(PDOException $e){

@@ -17,7 +17,8 @@ CREATE TABLE property (
     ownerID INTEGER NOT NULL, -- foreign key refference account ID
     EER CHAR NOT NULL, 
     postcode VARCHAR(255) NOT NULL,
-    address VARCHAR(255) NOT NULL, 
+    address VARCHAR(255) NOT NULL,
+    propertyType VARCHAR(255) NOT NULL,
     addressChanged DATETIME NOT NULL DEFAULT GETDATE(), -- when first created is the same time as date created
     addressChangedBy INTEGER NOT NULL, -- foreign key refference account ID
     reportIssueDate DATE NOT NULL,

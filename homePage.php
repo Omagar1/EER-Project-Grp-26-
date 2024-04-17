@@ -29,6 +29,7 @@ require_once "notLoggedIn.php";
             case "Admin":?>
                 <li><a href="manageUser.php">Manage Users</a></li>
                 <li><a href="manageProperty.php">Manage Properties</a></li>
+                <li><a href="Property.php">Add New Property</a></li>
                 <?php break;
             case "Landlord":?>
                 <li><a href="Property.php">Add New Property</a></li>
