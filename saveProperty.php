@@ -6,7 +6,7 @@ session_start([
 require("dbConnect.php");
 $userid = $_SESSION["userID"];
 try{
-    $sql1 = "SELECT userID,propertyID FROM userSavedProperty WHERE userID=:uid,propertyID=:pid";
+    $sql1 = "SELECT userID,propertyID FROM userSavedProperty WHERE userID=:uid AND propertyID=:pid";
     $result = $conn->prepare($sql1);
     $result->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
     $result->bindParam(':uid', $userid, PDO::PARAM_INT);
