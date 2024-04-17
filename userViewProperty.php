@@ -53,7 +53,6 @@ $userid = $_SESSION["userID"];
     </head>
     <body>
         <?php var_dump($row['EER'])?>
-        <div class="<?php echo ratingTocolour($row["EER"])?>">
             <?php
 
 
@@ -69,14 +68,14 @@ $userid = $_SESSION["userID"];
 
             */
 
-            try{
+            try{    
                 if ($_SESSION["userRole"]=="Tenant"){
                     $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
-                    <!--<div class="<?php /*echo ratingTocolour($row["EER"])*/?>">-->
+                <div class="<?php echo ratingTocolour($row["EER"])?>">
                     <div>
                         <div>
                             Property Type: <?php echo $row["propertyType"]?><br>
