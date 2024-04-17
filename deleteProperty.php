@@ -1,12 +1,11 @@
 <?php
-require("dbConnect.php");
 // Values are in seconds // lasts an hour
 session_start([ 
     'cookie_lifetime' => 3600, 
     'gc_maxlifetime' => 3600, 
    ]);
+require("dbConnect.php");
 include_once("navBar.php");
-require_once "notLoggedIn.php";
 try{
     if (isset($_POST['delete'])) {
         $stmt = "DELETE FROM property WHERE propertyID = :pid";
@@ -31,11 +30,11 @@ try{
             <h2>Delete this property?</h2>
         </div>
         <?php
-            $sql = "SELECT propertyID,EER,postcode,address FROM property WHERE propertyID =:pid";
+            $sql = "SELECT postcode,address FROM property WHERE propertyID =:pid";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
             $stmt->execute();
-            while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+            $row= $stmt->fetch(PDO::FETCH_ASSOC)
         ?>
         <div>
             <div>
@@ -44,7 +43,6 @@ try{
             </div>
         </div>
         <?php 
-        }//for while 
         if ($_SESSION['userRole']== 'Admin'){
         ?>
             <div>
@@ -65,4 +63,7 @@ try{
             </div>
         <?php }//for elseif ?>
     </body>
+    <footer class="footer">
+    <p>EERCalc © Group 26 2024</p>
+    </footer>
 </html>
