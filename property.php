@@ -11,7 +11,7 @@ $msg = "";
 if (isset($_POST['submit']))
 {
     $EER = EERCalc($_POST['tfa'],$_POST['lc'],$_POST['hc'], $_POST['hwc']);
-    $msg = addProperty($conn, $_SESSION['userID'], $EER, $_POST['postcode'], $_POST['address']);
+    $msg = addProperty($conn, $_SESSION['userID'], $EER, $_POST['postcode'], $_POST['address'],$_POST['propertyType']);
 }
 ?>
 
@@ -35,6 +35,13 @@ if (isset($_POST['submit']))
         
         <label for="address">Address</label><br>
         <input type="text" name="address" required><br><br>
+        
+        <select name="propertyType">
+            <option value="House">House</option>
+            <option value="Flat">Flat</option>
+            <option value="Maisonette">Maisonette</option>
+            <option value="Bungalow">Bungalow</option>
+        </select>
 
         <label for="tfa">Total Floor Area</label><br>
         <input type="text" name="tfa" required><br><br>

@@ -1,6 +1,6 @@
 <?php
 
-function addProperty($conn, $ownerID, $EER, $postcode, $address)
+function addProperty($conn, $ownerID, $EER, $postcode, $address,  $propertyType)
 {
     try{
         $currentDate = date('Y-m-d');
@@ -35,6 +35,7 @@ function addProperty($conn, $ownerID, $EER, $postcode, $address)
             $stmt2->bindParam(':address', $address, PDO::PARAM_STR);
             $stmt2->bindParam(':addressChanged', $currentDate, PDO::PARAM_INT);
             $stmt2->bindParam(':addressChangedBy', $ownerID, PDO::PARAM_INT);
+            $stmt2->bindParam(':propertyType', $propertyType, PDO::PARAM_STR);
             $stmt2->bindParam(':reportIssueDate', $currentDate, PDO::PARAM_INT);
             $stmt2->execute();
 
