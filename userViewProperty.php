@@ -14,8 +14,6 @@ $userid = $_SESSION["userID"];
 <?php
  function ratingTocolour($eerInput){
          
-    echo $eerInput;
-
     $ratingColour = "";
 
     switch($eerInput){
@@ -39,6 +37,9 @@ $userid = $_SESSION["userID"];
             return $ratingColour;
         case "G":
             $ratingColour = "view-c60909-container";
+            return $ratingColour;
+        default:
+            $ratingColour = "display-container";
             return $ratingColour;
         }
     
@@ -73,7 +74,6 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-                    var_dump($row['EER']);
                     ?>
                 <div class="<?php echo ratingTocolour($row["EER"])?>">
                     <div>
@@ -100,7 +100,7 @@ $userid = $_SESSION["userID"];
                     $stmt->execute();
                         
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-                            if (isset($row)){
+                            if (isset($row)){                            
                         ?>
                         <div class="<?php echo ratingTocolour($row["EER"])?>">
                             <div>
