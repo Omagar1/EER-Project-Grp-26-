@@ -12,10 +12,17 @@ try{
     $result->bindParam(':uid', $userid, PDO::PARAM_INT);
     $result->execute();
     $row= $result->fetch(PDO::FETCH_ASSOC);
-    if (isset($_POST['save']) && isset($row)) {
-        echo"Already saved";
-    }
-    else{
+    // if (isset($_POST['save']) && isset($row)) {
+    //     echo"Already saved";
+    // }
+    // else{
+    //     $sql = "INSERT INTO userSavedProperty (userID,propertyID)VALUES(:uid,:pid)";
+    //     $stmt = $conn->prepare($sql);
+    //     $stmt->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
+    //     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
+    //     $stmt->execute();
+    // }
+    if (empty($row)){
         $sql = "INSERT INTO userSavedProperty (userID,propertyID)VALUES(:uid,:pid)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':pid', $_REQUEST['pid'], PDO::PARAM_INT);
