@@ -1,6 +1,6 @@
 <?php
 
-require_once "notLoggedIn.php";
+//require_once "notLoggedIn.php";
 //echo "why?"; //test
 $servername = "tcp:eer-sever.database.windows.net,1433";//eer-sever
 $username = "EER-admin"; //crrzbzscbr

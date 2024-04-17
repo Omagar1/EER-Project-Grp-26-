@@ -4,7 +4,8 @@ include_once("navBar.php");
 require_once "notLoggedIn.php";
 try{
     if (isset($_POST['delete'])) {
-        $stmt = "UPDATE account SET active = 0 WHERE accountID = :aid";
+        // $stmt = "UPDATE account SET active = 0 WHERE accountID = :aid";
+        $stmt = "DELETE FROM account WHERE accountID = :aid";
         $sql = $conn->prepare($stmt);
         $sql->bindParam(':aid', $_GET['id'], PDO::PARAM_INT);
         $sql->execute();

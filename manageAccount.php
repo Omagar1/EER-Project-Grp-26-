@@ -24,6 +24,9 @@ if (isset($_POST['changeDetailsSubmit']))
     {
         $msg = "Passwords do not match.";
     }
+} else if (isset($_POST['deleteAccountSubmit']))
+{
+    header("Location: deleteUser.php?id=" . $_SESSION['userID']);
 }
 ?>
 
@@ -36,13 +39,13 @@ if (isset($_POST['changeDetailsSubmit']))
     <title>Manage Account</title>
 </head>
 <body>
-<?php include_once "navBar.php"; ?> 
+    
 <div id="form-container">
     <div id="user-form">
     <h2>Manage Account</h2>
         <form action="manageAccount.php" method="post">
             <label for="changeEmail">New Email:</label><br>
-            <input type="email" name="changeEmail" placeholder="example@email.com" required><br>
+            <input type="email" name="changeEmail" placeholder="<?php echo $_SESSION['email']?>" required><br>
 
             <label for="changePassword">New Password:</label><br>
             <input type="password" name="changePassword" minlength="4" required><br>
@@ -50,15 +53,14 @@ if (isset($_POST['changeDetailsSubmit']))
             <label for="changeAccountPassword">Re-type Password:</label><br>
             <input type="password" name="changeAccountPassword" minlength="4" required><br><br>
 
-            <label for="role">Role: </label><br>
-            <select name="role">
-                <option value="Tenant">Tenant</option>
-                <option value="Landlord">Landlord</option>
-                <option value="Admin">Admin</option>
-            </select><br><br>
-
             <input type="submit" name="changeDetailsSubmit"><br>
-            <div class="errorMessage"><?php echo $msg ?></div>
+            <div class="errorMessage"><?php echo $msg ?></div><br>
+        </form>
+        <form action="manageAccount.php" method="post">
+            <input type="submit" name="deleteAccountSubmit" value="Delete my account"><br>
+        </form>
+        <form action="manageAccount.php" method="post">
+            <input type="hidden" value=<?php echo $_SESSION['userID']?>>
         </form>
         <a href="index.php">Back</a>
     </div>
