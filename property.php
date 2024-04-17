@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
         <label for="address">Address</label><br>
         <input type="text" name="address" required><br><br>
 
-        <label for="address">Address</label><br>
+        <label for="propertyType">Property Type</label><br>
         <select name="propertyType">
             <option value="House">House</option>
             <option value="Flat">Flat</option>
