@@ -83,8 +83,8 @@ header {
 
 .header-text a {
   color: rgb(0, 0, 0);
-  font-size: 22px; 
-  padding: 32px;
+  font-size: 11px; 
+  padding: 16px;
   margin: 0; 
   display: flex;
   justify-content: space-between; 
