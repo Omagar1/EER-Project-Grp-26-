@@ -5,7 +5,6 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 require("dbConnect.php");
-include_once("navBar.php");
 try{
     if (isset($_POST['delete'])) {
         $stmt = "DELETE FROM property WHERE propertyID = :pid";
@@ -25,6 +24,7 @@ try{
         <title>Delete Property</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once("navBar.php");?>
     <body>
         <div>
             <h2>Delete this property?</h2>
