@@ -3,6 +3,7 @@ session_start();
 require_once 'dbConnect.php';
 require_once 'calc.php';
 require_once 'addProperty.php';
+require_once "notLoggedIn.php";
 
 //var_dump($_SESSION);test
 
