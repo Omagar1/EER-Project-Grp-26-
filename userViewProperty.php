@@ -95,20 +95,25 @@ $userid = $_SESSION["userID"];
                     $stmt = $conn->prepare($sql);
                     $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
                     $stmt->execute();
-                    while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
-                    ?>
-                    <div>
+                    if ($stmt->rowCount() > 0){
+                        while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
+                        ?>
                         <div>
-                            Property Type: <?php echo $row["propertyType"]?><br>
-                            Energy efficiency rating: <?php echo $row["EER"]?><br>
-                            Postcode: <?php echo $row["postcode"]?><br>
-                            Address: <?php echo $row["address"]?><br>
-                            <a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a>
-                            <a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a>
+                            <div>
+                                Property Type: <?php echo $row["propertyType"]?><br>
+                                Energy efficiency rating: <?php echo $row["EER"]?><br>
+                                Postcode: <?php echo $row["postcode"]?><br>
+                                Address: <?php echo $row["address"]?><br>
+                                <a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a>
+                                <a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a>
+                            </div>
                         </div>
-                    </div>
             <?php
-                    }//for while loop
+                        }//for while loop
+                    }//if stmt
+                    else{
+                        echo"There is no property added yet.";
+                    }
                 }//for else if
             // }//if isset
             }catch(PDOException $e){
