@@ -17,8 +17,51 @@ $userid = $_SESSION["userID"];
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <div class="property-container">
+        <div> <!-- view property container -->
             <?php
+
+            function ratingTocolour($eerInput){
+               
+                $ratingColour = "";
+
+                switch($eerInput){
+                    case "A":
+                        $ratingColour = "view-0ab654-container";
+                        return $ratingColour;
+                    case "B":
+                        $ratingColour = "view-f0ee07-container";
+                        return $ratingColour;
+                    case "C":
+                        $ratingColour = "view-f7911a-container";
+                        return $ratingColour;
+                    case "D":
+                        $ratingColour = "view-ca7b1e-container";
+                        return $ratingColour;
+                    case "E":
+                        $ratingColour = "view-ca4d1e-container";
+                        return $ratingColour;
+                    case "F":
+                        $ratingColour = "view-ca1e1e-container";
+                        return $ratingColour;
+                    case "G":
+                        $ratingColour = "view-c60909-container";
+                        return $ratingColour;
+                    }
+            }
+
+
+
+            /*color values
+            
+            A - 0ab654
+            B - f0ee07
+            C - f7911a
+            D - ca7b1e
+            E - ca4d1e
+            F - ca1e1e
+            G - c60909
+
+            */
 
             try{
                 if ($_SESSION["userRole"]=="Tenant"){
@@ -27,7 +70,7 @@ $userid = $_SESSION["userID"];
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
-                    <div>
+                    <div class="<?php echo ratingTocolour($row["EER"])?>">
                         <div>
                             Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
