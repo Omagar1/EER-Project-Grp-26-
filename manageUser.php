@@ -5,6 +5,7 @@ session_start([
    ]);
 require("dbConnect.php");
 include_once("navBar.php");
+require_once "notLoggedIn.php";
 ?>
 <!DOCTYPE html>
 <html>
