@@ -6,7 +6,6 @@ session_start([
    ]);
 require("dbConnect.php");
 require_once "notLoggedIn.php";
-include_once("navBar.php");
 $userid = $_SESSION["userID"];
 ?>
 <!DOCTYPE html>
@@ -15,6 +14,7 @@ $userid = $_SESSION["userID"];
         <title>View Saved Properties</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once("navBar.php");?>
     <body>
         <div>
             <?php
