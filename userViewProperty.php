@@ -82,7 +82,7 @@ $userid = $_SESSION["userID"];
                             Postcode: <?php echo $row["postcode"]?><br>
                             Address: <?php echo $row["address"]?><br>
                         </div>
-                    </div>
+                    <!--<close div here-->
                         <div>
                             <form method="post" action="saveProperty.php">
                                 <input type="hidden" name="pid" value="<?php echo $row['propertyID'] ?>">
