@@ -18,6 +18,11 @@ $userid = $_SESSION["userID"];
     <body>
         <div>
             <?php
+
+            //getting function
+            include 'userViewProperty.php';
+
+
             try{
             $sql ="Select userSavedProperty.propertyID,property.propertyType,property.EER,property.postcode,property.address FROM userSavedProperty 
             INNER JOIN property ON (property.propertyID=userSavedProperty.propertyID) WHERE userSavedProperty.userID=:uid ORDER BY userSavedProperty.ID ASC;";
