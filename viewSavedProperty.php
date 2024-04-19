@@ -6,7 +6,6 @@ session_start([
    ]);
 require("dbConnect.php");
 require_once "notLoggedIn.php";
-include_once("navBar.php");
 $userid = $_SESSION["userID"];
 ?>
 <!DOCTYPE html>
@@ -15,6 +14,7 @@ $userid = $_SESSION["userID"];
         <title>View Saved Properties</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once("navBar.php");?>
     <body>
         <div>
             <?php
@@ -26,12 +26,18 @@ $userid = $_SESSION["userID"];
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
             ?>
-            <div>
-                Property Type: <?php echo $row["propertyType"]?><br>
-                Energy efficiency rating: <?php echo $row["EER"]?><br>
-                Postcode: <?php echo $row["postcode"]?><br>
-                Address: <?php echo $row["address"]?><br>
-            </div>
+                <div>
+                    Property Type: <?php echo $row["propertyType"]?><br>
+                    Energy efficiency rating: <?php echo $row["EER"]?><br>
+                    Postcode: <?php echo $row["postcode"]?><br>
+                    Address: <?php echo $row["address"]?><br>
+                </div>
+                <div>
+                    <form method="post" action="removeSavedProperty.php">
+                        <input type="hidden" name="pid" value="<?php echo $row['propertyID'] ?>">
+                        <input type="submit" value="Unsave" name="unsave">
+                    </form>
+                </div>
             
             <?php
             }//for while loop
