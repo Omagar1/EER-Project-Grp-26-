@@ -102,7 +102,7 @@ header {
 
 .header-buttons {
   display: flex;
-  justify-content: space-between;
+  /* test */ /*justify-content: space-between;*/
   align-items: center;
   flex-grow: 1; 
 }
