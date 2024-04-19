@@ -26,6 +26,7 @@ try{
     </head>
     <?php include_once("navBar.php");?>
     <body>
+        <div class="display-container">
         <div>
             <h2>Delete this property?</h2>
         </div>
@@ -42,6 +43,7 @@ try{
                 Address: <?php echo $row["address"]?><br>
             </div>
         </div>
+    </div>
         <?php 
         if ($_SESSION['userRole']== 'Admin'){
         ?>
