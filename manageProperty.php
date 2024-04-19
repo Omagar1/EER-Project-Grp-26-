@@ -1,8 +1,9 @@
 <?php
+require_once "notLoggedIn.php";
 require("dbConnect.php");
 include_once("navBar.php");
 // include_once("search.php");
-require_once "notLoggedIn.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,7 @@ require_once "notLoggedIn.php";
         <title>View Properties for Admin</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once "navBar.php"; ?>
     <body>
         <div class="property-table-wrapper">
             <h2>View Properties</h2>

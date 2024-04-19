@@ -1,9 +1,10 @@
 <?php
 ob_start();
 session_start();
+require_once "notLoggedIn.php";
 require_once "dbConnect.php";
 require_once "changeDetails.php";
-require_once "notLoggedIn.php";
+
 
 $msg = "";
 
@@ -39,7 +40,7 @@ if (isset($_POST['changeDetailsSubmit']))
     <title>Manage Account</title>
 </head>
 <body>
-    
+<?php include_once "navBar.php"; ?>
 <div id="form-container">
     <div id="user-form">
     <h2>Manage Account</h2>
@@ -62,7 +63,6 @@ if (isset($_POST['changeDetailsSubmit']))
         <form action="manageAccount.php" method="post">
             <input type="hidden" value=<?php echo $_SESSION['userID']?>>
         </form>
-        <a href="index.php">Back</a>
     </div>
 </div>
 <footer class="footer">
