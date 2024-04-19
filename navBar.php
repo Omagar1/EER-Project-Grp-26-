@@ -10,7 +10,6 @@
                 case "Admin" :?>
                     <a href="manageProperty.php">Manage Properties</a>
                     <a href="manageUser.php">Manage Users</a>
-                    <a href="placeholder.php">Add New Property</a>
                     <?php break;
                 case "Landlord":?>
                     <a href="userViewProperty.php">Manage Properties</a>
