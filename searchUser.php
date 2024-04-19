@@ -9,8 +9,6 @@ session_start([
 require("dbConnect.php");
 require_once "notLoggedIn.php";
 include_once("navBar.php");
-$search = $_POST['search'];
-$column = $_POST['column'];
 ?>
 <form action="searchUser.php" method="post">
         <input type="text" name="search">
@@ -21,6 +19,8 @@ $column = $_POST['column'];
                     <input type ="submit" name="searchButton" value="Search">
 </form>
 <?php
+$search = $_POST['search'];
+$column = $_POST['column'];
 if (isset($_POST['searchButton'])) {
     $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
     $stmt = $conn->prepare($sql);
