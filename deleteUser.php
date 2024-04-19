@@ -28,12 +28,14 @@ try{
     </head>
     <?php include_once("navBar.php");?>
     <body>
-        <div class="display-container">
+    <div class="display-container">
+        <div>
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
         </div>
         <form method="post">
             <input type="submit" value="Delete" name="delete">
             <a href="manageUser.php">Back</a>
         </form>
+    </div>
     </body>
 </html>
