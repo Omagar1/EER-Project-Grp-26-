@@ -1,6 +1,6 @@
 <?php
+session_start();
 require("dbConnect.php");
-include_once("navBar.php");
 require_once "notLoggedIn.php";
 try{
     if (isset($_POST['delete'])) {
@@ -26,6 +26,7 @@ try{
         <title>Delete User</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once("navBar.php");?>
     <body>
         <div class="display-container">
             <h2>Delete User <?php echo $_GET['id'];?>?</h2>
