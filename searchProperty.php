@@ -1,6 +1,4 @@
-<head>
-    <link rel="stylesheet" href="styles.css"/>
-</head>
+
 <?php
 // Values are in seconds // lasts an hour
 session_start([ 
@@ -8,11 +6,9 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 require("dbConnect.php");
-include_once("navBar.php");
-include_once("search.php");
 $search = $_POST['search'];
 $column = $_POST['column'];
- if (isset($_POST['searchButton'])) {
+if (isset($_POST['searchButton'])) {
     $sql = "Select propertyID,propertyType,EER,postcode,address FROM property WHERE $column like '%$search%' ORDER BY propertyID ASC;";
     $result = $conn->prepare($sql);
     $result->execute();
@@ -39,6 +35,13 @@ $column = $_POST['column'];
         }
     }//for while
 }//if isset
+?>
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<?php 
+include_once("navBar.php");
+include_once("search.php");
 ?>
 <footer class="footer">
     <p>EERCalc © Group 26 2024</p>
