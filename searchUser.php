@@ -9,8 +9,6 @@ session_start([
 require("dbConnect.php");
 require_once "notLoggedIn.php";
 include_once("navBar.php");
-$search = $_POST['search'];
-$column = $_POST['column'];
 ?>
 <form action="searchUser.php" method="post">
         <input type="text" name="search">
@@ -21,12 +19,14 @@ $column = $_POST['column'];
                     <input type ="submit" name="searchButton" value="Search">
 </form>
 <?php
+$search = $_POST['search'];
+$column = $_POST['column'];
 if (isset($_POST['searchButton'])) {
     $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $num_rows = $stmt->fetchColumn();
-    if ($num_rows > 0){
+    // $num_rows = $stmt->fetchColumn();
+    // if ($num_rows > 0){
 ?>
         <div>
         <h2>View Users</h2>
@@ -44,6 +44,7 @@ if (isset($_POST['searchButton'])) {
         <?php
         try{
             while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
+                if(isset($row)){
         ?>
         <tr>                
             <td><?php echo $row["accountID"]?></td>
@@ -53,7 +54,10 @@ if (isset($_POST['searchButton'])) {
             <td><a href="deleteUser.php?id=<?php echo $row["accountID"];?>">Delete</a></td>
         </tr>
         <?php
-        }//for while loop
+                }else {
+                    echo "No results found";
+                }
+            }//for while loop
         }catch(PDOException $e){
             echo $e;
         }
@@ -62,9 +66,9 @@ if (isset($_POST['searchButton'])) {
         </table>
         </div>
 <?php
-}//if result
-else {
-	echo "No results found";
-}
+//}//if result
+// else {
+// 	echo "No results found";
+// }
 }//if isset
 ?>

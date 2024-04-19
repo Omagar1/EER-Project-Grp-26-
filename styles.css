@@ -94,6 +94,12 @@ header {
 
 }
 
+.header-text h1 {
+  color: rgb(0, 0, 0);
+  font-size: 34px; 
+  font-weight: bold;
+}
+
 .header-buttons {
   display: flex;
   justify-content: space-between;
@@ -103,11 +109,11 @@ header {
 
 .header-buttons a {
   padding: 0 10px; 
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 30px;
+  margin-left: 30px;
   text-decoration: none;
   color: rgb(0, 0, 0);
-  font-size: 22px; 
+  font-size: 20px; 
 }
 
 .container {
