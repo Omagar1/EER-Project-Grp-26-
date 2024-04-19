@@ -8,6 +8,7 @@ session_start([
    ]);
 require("dbConnect.php");
 include_once("navBar.php");
+require_once "notLoggedIn.php";
 $search = $_POST['search'];
 $column = $_POST['column'];
 if (isset($_POST['searchButton'])) {
