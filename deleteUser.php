@@ -38,4 +38,7 @@ try{
         </form>
     </div>
     </body>
+    <footer class="footer">
+    <p>EERCalc © Group 26 2024</p>
+    </footer>
 </html>
