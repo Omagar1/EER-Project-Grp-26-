@@ -16,6 +16,7 @@ main {
 }
 
 footer {
+  padding-top: 20px;
   padding-bottom: 80px;
   background-color: #fbfdea;
   color: black; 
@@ -102,7 +103,6 @@ header {
 
 .header-buttons {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-grow: 1; 
 }
@@ -227,8 +227,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -247,8 +247,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -267,8 +267,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -287,8 +287,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -307,8 +307,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -327,8 +327,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
@@ -347,8 +347,8 @@ select {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 200px auto; 
   border: 2px solid #adada9; 
-  margin-bottom: 90px;
-  margin-top: 180px;
+  margin-bottom: 45px;
+  margin-top: 90px;
   color: white;
 }
 
