@@ -18,6 +18,11 @@ $userid = $_SESSION["userID"];
     <body>
         <div>
             <?php
+
+            //getting functions
+            include 'viewPropertyFunctions.php';
+
+
             try{
             $sql ="Select userSavedProperty.propertyID,property.propertyType,property.EER,property.postcode,property.address FROM userSavedProperty 
             INNER JOIN property ON (property.propertyID=userSavedProperty.propertyID) WHERE userSavedProperty.userID=:uid ORDER BY userSavedProperty.ID ASC;";
@@ -26,6 +31,7 @@ $userid = $_SESSION["userID"];
             $stmt->execute();
             while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
             ?>
+             <div class="<?php echo ratingTocolour($row["EER"])?>">
                 <div>
                     Property Type: <?php echo $row["propertyType"]?><br>
                     Energy efficiency rating: <?php echo $row["EER"]?><br>
@@ -38,6 +44,7 @@ $userid = $_SESSION["userID"];
                         <input type="submit" value="Unsave" name="unsave">
                     </form>
                 </div>
+            </div>
             
             <?php
             }//for while loop

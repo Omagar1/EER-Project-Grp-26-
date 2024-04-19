@@ -1,17 +1,32 @@
-<link rel="stylesheet" href="styles.css"/>
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
 <?php
+session_start([ 
+    'cookie_lifetime' => 3600, 
+    'gc_maxlifetime' => 3600, 
+   ]);
 require("dbConnect.php");
-include_once("navBar.php");
-include_once("search.php");
 require_once "notLoggedIn.php";
+include_once("navBar.php");
 $search = $_POST['search'];
 $column = $_POST['column'];
+?>
+<form action="searchUser.php" method="post">
+        <input type="text" name="search">
+        Search by:  <select name="column">
+                    <option value="accountID">Account ID</option>
+                    <option value="emailAddress">Email</option>
+                    </select>
+                    <input type ="submit" name="searchButton" value="Search">
+</form>
+<?php
 if (isset($_POST['searchButton'])) {
     $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
-    $result = $conn->prepare($sql);
-    $result->execute();
-
-    if ($result->rowCount() > 0){
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $num_rows = $stmt->fetchColumn();
+    if ($num_rows > 0){
 ?>
         <div>
         <h2>View Users</h2>
@@ -28,7 +43,7 @@ if (isset($_POST['searchButton'])) {
         <tbody>
         <?php
         try{
-            while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
         ?>
         <tr>                
             <td><?php echo $row["accountID"]?></td>

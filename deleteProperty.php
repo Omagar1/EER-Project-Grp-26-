@@ -26,6 +26,8 @@ try{
     </head>
     <?php include_once("navBar.php");?>
     <body>
+    <div class="display-container">
+
         <div>
             <h2>Delete this property?</h2>
         </div>
@@ -42,6 +44,7 @@ try{
                 Address: <?php echo $row["address"]?><br>
             </div>
         </div>
+    
         <?php 
         if ($_SESSION['userRole']== 'Admin'){
         ?>
@@ -61,7 +64,10 @@ try{
                     <a href="userViewProperty.php">Back</a>
                 </form>
             </div>
+
         <?php }//for elseif ?>
+
+    </div>    
     </body>
     <footer class="footer">
     <p>EERCalc © Group 26 2024</p>
