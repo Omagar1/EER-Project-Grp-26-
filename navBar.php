@@ -10,7 +10,7 @@
             <?php switch ($_SESSION["userRole"]):
                 case "Admin" :?>
                     <a href="manageProperty.php">Manage Properties</a>
-                    <a href="manageUsers.php">Manage Users</a>
+                    <a href="manageUser.php">Manage Users</a>
                     <a href="placeholder.php">Add New Property</a>
                     <?php break;
                 case "Landlord":?>
