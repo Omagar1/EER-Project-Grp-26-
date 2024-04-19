@@ -43,7 +43,7 @@ try{
                 Address: <?php echo $row["address"]?><br>
             </div>
         </div>
-    </div>
+    
         <?php 
         if ($_SESSION['userRole']== 'Admin'){
         ?>
@@ -63,6 +63,7 @@ try{
                     <a href="userViewProperty.php">Back</a>
                 </form>
             </div>
+        </div>
         <?php }//for elseif ?>
     </body>
     <footer class="footer">
