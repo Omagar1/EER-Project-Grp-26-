@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="styles.css"/>
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
 <?php
 // Values are in seconds // lasts an hour
 session_start([ 
@@ -8,20 +10,20 @@ session_start([
 require("dbConnect.php");
 include_once("navBar.php");
 include_once("search.php");
-require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 $search = $_POST['search'];
 $column = $_POST['column'];
 if ($_SESSION['userRole']== 'Tenant'){
     if (isset($_POST['searchButton'])) {
-        $sql = "Select propertyID,EER,postcode,address FROM property WHERE $column like '%$search%' ORDER BY propertyID ASC;";
+        $sql = "Select propertyID,propertyType,EER,postcode,address FROM property WHERE $column like '%$search%' ORDER BY propertyID ASC;";
         $result = $conn->prepare($sql);
         $result->execute();
 
-        if ($result->rowCount() > 0){
-            while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+        while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+            if (isset($row)){
             ?>
                 <div>
+                    Property Type: <?php echo $row["propertyType"]?><br>
                     Energy efficiency rating: <?php echo $row["EER"]?><br>
                     Postcode: <?php echo $row["postcode"]?><br>
                     Address: <?php echo $row["address"]?><br>
@@ -33,24 +35,26 @@ if ($_SESSION['userRole']== 'Tenant'){
                     </form>
                 </div>
 <?php
-}//for while
-}//if result
-else {
-	echo "No results found";
-}
-}//if isset
+            }//if isset
+        }//for while
+        
+        else {
+	        echo "No results found";
+        }
+    }//if isset
 }//if session
 elseif ($_SESSION['userRole']== 'Landlord'){
     if (isset($_POST['searchButton'])) {
-        $sql ="Select propertyID,EER,postcode,address FROM property WHERE $column like '%$search%' AND ownerID=:uid ORDER BY propertyID ASC;"; 
+        $sql ="Select propertyID,propertyType,EER,postcode,address FROM property WHERE $column like '%$search%' AND ownerID=:uid ORDER BY propertyID ASC;"; 
         $sql->bindParam(':uid', $userid, PDO::PARAM_INT);
         $result = $conn->prepare($sql);
         $result->execute();
 
-        if ($result->rowCount() > 0){
-            while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+        while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+            if (isset($row)){
             ?>
                 <div>
+                    Property Type: <?php echo $row["propertyType"]?><br>
                     Energy efficiency rating: <?php echo $row["EER"]?><br>
                     Postcode: <?php echo $row["postcode"]?><br>
                     Address: <?php echo $row["address"]?><br>
@@ -58,66 +62,71 @@ elseif ($_SESSION['userRole']== 'Landlord'){
                     <a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a>
                 </div>
 <?php
-}//for while
-}//if result
-else {
-	echo "No results found";
-}
-}//if isset
+            }//if isset
+        }//for while
+        else {
+            echo "No results found";
+        }
+    }//if isset
 }//first elseif session
 elseif ($_SESSION['userRole']== 'Admin'){
     if (isset($_POST['searchButton'])) {
-        $sql = "Select propertyID,ownerID,EER,postcode,address,reportIssueDate FROM property WHERE $column like '%$search%' ORDER BY propertyID ASC;";
+        $sql = "Select propertyID,ownerID,propertyType,EER,postcode,address,addressChanged,addressChangedBy,reportIssueDate FROM property WHERE $column like '%$search%' ORDER BY propertyID ASC;";
         $result = $conn->prepare($sql);
         $result->execute();
 
         if ($result->rowCount() > 0){
 ?>
-        <div>
-            <h2>View Properties</h2>
-        <table>
-        <thead>
-            <tr>
-                <th>Property ID</th>
-                <th>Owner ID</th>
-                <th>Energy Efficiency Rating</th>
-                <th>Postcode</th>
-                <th>Address</th>
-                <th>Report Issue Date</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            try{
-                while($row = $result->fetch(PDO::FETCH_ASSOC) ){
-            ?>
-            <tr>
-                <td><?php echo $row["propertyID"]?></td>
-                <td><?php echo $row["ownerID"]?></td>
-                <td><?php echo $row["EER"]?></td>
-                <td><?php echo $row["postcode"]?></td>
-                <td><?php echo $row["address"]?></td>
-                <td><?php echo $row["reportIssueDate"]?></td>
-                <td><a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a></td>
-                <td><a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a></td>
-            </tr>
-            <?php
-            }//for while loop
-            }catch(PDOException $e){
-                echo $e;
-            }
-            ?>
-        </tbody>
-        </table>
-        </div>
+            <div>
+                <h2>View Properties</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property ID</th>
+                            <th>Owner ID</th>
+                            <th>Energy Efficiency Rating</th>
+                            <th>Postcode</th>
+                            <th>Address</th>
+                            <th>Address Changed On</th>
+                            <th>Address Changed By</th>
+                            <th>Report Issue Date</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        try{
+                            while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+                        ?>
+                        <tr>
+                            <td><?php echo $row["propertyID"]?></td>
+                            <td><?php echo $row["ownerID"]?></td>
+                            <td><?php echo $row["propertyType"]?></td>
+                            <td><?php echo $row["EER"]?></td>
+                            <td><?php echo $row["postcode"]?></td>
+                            <td><?php echo $row["address"]?></td>
+                            <td><?php echo $row["addressChanged"]?></td>
+                            <td><?php echo $row["addressChangedBy"]?></td>
+                            <td><?php echo $row["reportIssueDate"]?></td>
+                            <td><a href="updateProperty.php?id=<?php echo $row["propertyID"];?>">Edit</a></td>
+                            <td><a href="deleteProperty.php?id=<?php echo $row["propertyID"];?>">Delete</a></td>
+                        </tr>
+                        <?php
+                            }//for while loop
+                        }catch(PDOException $e){
+                            echo $e;
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
 <?php
-}//if result
-else {
-	echo "No results found";
-}
-}//if isset
+        }//if result
+        else {
+            echo "No results found";
+        }
+    }//if isset
 }//second elseif session
 ?>
 <footer class="footer">
