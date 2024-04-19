@@ -25,7 +25,8 @@ if (isset($_POST['searchButton'])) {
     $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
     $result = $conn->prepare($sql);
     $result->execute();
-    if ($result->rowCount() > 0){
+    $row = $result->fetch(PDO::FETCH_ASSOC);
+    if (isset($row)){
 ?>
         <div>
         <h2>View Users</h2>
@@ -42,7 +43,7 @@ if (isset($_POST['searchButton'])) {
         <tbody>
         <?php
         try{
-            while($row = $result->fetch(PDO::FETCH_ASSOC) ){
+            while($row){
         ?>
         <tr>                
             <td><?php echo $row["accountID"]?></td>
