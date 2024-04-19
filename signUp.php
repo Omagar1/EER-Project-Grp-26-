@@ -25,7 +25,7 @@ if (isset($_POST['signUpSubmit']))
     {
         sendEmail($_POST["signUpEmail"]);
         //$msg ="test";
-        var_dump($_POST);
+        //var_dump($_POST); //test
         $msg = createAccount($conn, $_POST['signUpEmail'], md5($_POST['signUpPassword']), $_POST["role"]);
         
     } else 
