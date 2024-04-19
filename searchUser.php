@@ -66,7 +66,7 @@ if (isset($_POST['searchButton'])) {
         </table>
         </div>
 <?php
-}//if result
+//}//if result
 // else {
 // 	echo "No results found";
 // }
