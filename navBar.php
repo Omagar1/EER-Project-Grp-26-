@@ -1,4 +1,3 @@
-
 <header class="header">
 
     <?php //var_dump($_SESSION)//test?>
@@ -36,4 +35,3 @@
         </div>
     <?php endif;?>
 </header>
-
