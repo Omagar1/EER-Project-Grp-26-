@@ -1,4 +1,5 @@
 <?php
+session_start(); 
 require_once "notLoggedIn.php";
 require("dbConnect.php");
 include_once("navBar.php");
