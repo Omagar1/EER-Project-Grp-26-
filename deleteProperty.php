@@ -26,7 +26,7 @@ try{
     </head>
     <?php include_once("navBar.php");?>
     <body>
-        <div class="display-container">
+    <div class="display-container">
         <div>
             <h2>Delete this property?</h2>
         </div>
@@ -63,7 +63,9 @@ try{
                     <a href="userViewProperty.php">Back</a>
                 </form>
             </div>
+    </div>
         </div>
+        
         <?php }//for elseif ?>
     </body>
     <footer class="footer">
