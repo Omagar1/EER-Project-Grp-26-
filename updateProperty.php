@@ -21,12 +21,11 @@ try{
             $_POST['address']= trim($_POST['address']);
 
             //validation passed 
-            $stmt = "UPDATE property SET ownerID=:oid ,propertyType=:propertyType, EER=:eer ,postcode=:postcode ,address=:address, addressChanged=:currentDate , addressChangedBy=:currentUser ,reportIssueDate=:rdate WHERE propertyID = :pid";
+            $stmt = "UPDATE property SET ownerID=:oid ,propertyType=:propertyType ,postcode=:postcode ,address=:address, addressChanged=:currentDate , addressChangedBy=:currentUser ,reportIssueDate=:rdate WHERE propertyID = :pid";
             $sql = $conn->prepare($stmt);
             $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
             $sql->bindParam(':oid', $_POST['oid'], PDO::PARAM_INT);
             $sql->bindParam(':propertyType', $_POST['propertyType'], PDO::PARAM_STR);
-            $sql->bindParam(':eer', $_POST['eer'], PDO::PARAM_STR);
             $sql->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
             $sql->bindParam(':address', $_POST['address'], PDO::PARAM_STR);
             $sql->bindParam(':currentDate', $currentDate, PDO::PARAM_INT);
@@ -45,11 +44,11 @@ try{
             $_POST['address']= trim($_POST['address']);
 
             //validation passed 
-            $stmt = "UPDATE property SET propertyType=:propertyType, EER=:eer ,postcode=:postcode ,address=:address, addressChanged=:currentDate, addressChangedBy=:currentUser  WHERE propertyID = :pid";
+            $stmt = "UPDATE property SET propertyType=:propertyType ,postcode=:postcode ,address=:address, addressChanged=:currentDate, addressChangedBy=:currentUser  WHERE propertyID = :pid";
             $sql = $conn->prepare($stmt);
             $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
             $sql->bindParam(':propertyType', $_POST['propertyType'], PDO::PARAM_STR);
-            $sql->bindParam(':eer', $_POST['eer'], PDO::PARAM_STR);
+            // $sql->bindParam(':eer', $_POST['eer'], PDO::PARAM_STR);
             $sql->bindParam(':postcode', $_POST['postcode'], PDO::PARAM_STR);
             $sql->bindParam(':address', $_POST['address'], PDO::PARAM_STR);
             $sql->bindParam(':currentDate', $currentDate, PDO::PARAM_INT);
@@ -77,7 +76,7 @@ try{
                 try{
                     if ($_SESSION['userRole']== 'Admin') {
                     
-                        $sql = "SELECT propertyID,ownerID,propertyType,EER,postcode,address,reportIssueDate FROM property WHERE propertyID =:pid";
+                        $sql = "SELECT propertyID,ownerID,propertyType,postcode,address,reportIssueDate FROM property WHERE propertyID =:pid";
                         $stmt = $conn->prepare($sql);
                         $stmt->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
                         $stmt->execute();
@@ -99,10 +98,10 @@ try{
                                 </select>
                             </div>
 
-                            <div>
+                            <!-- <div>
                                     <label>EER</label>
                                     <input  type="text" name = "eer" value="<?php echo $row["EER"]; ?>">
-                            </div>
+                            </div> -->
 
                             <div>
                                     <label>Postcode</label>
@@ -129,7 +128,7 @@ try{
 
                         <?php
                     }elseif($_SESSION['userRole']== 'Landlord') {
-                            $sql = "SELECT propertyID,propertyType,EER,postcode,address FROM property WHERE propertyID =:pid";
+                            $sql = "SELECT propertyID,propertyType,postcode,address FROM property WHERE propertyID =:pid";
                             $stmt = $conn->prepare($sql);
                             $stmt->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
                             $stmt->execute();
@@ -145,10 +144,10 @@ try{
                                     <option value="Bungalow">Bungalow</option>
                                 </select>
                             </div>
-                            <div>
+                            <!-- <div>
                                     <label>EER</label>
                                     <input  type="text" name = "eer" value="<?php echo $row["EER"]; ?>">
-                            </div>
+                            </div> -->
 
                             <div>
                                     <label>Postcode</label>
