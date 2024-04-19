@@ -19,8 +19,8 @@ $userid = $_SESSION["userID"];
         <div>
             <?php
 
-            //getting function
-            include 'userViewProperty.php';
+            //getting functions
+            include 'viewPropertyFunctions.php';
 
 
             try{
