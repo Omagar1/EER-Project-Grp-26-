@@ -25,8 +25,8 @@ if (isset($_POST['searchButton'])) {
     $sql = "Select accountID,emailAddress,dateCreated,role FROM account WHERE $column like '%$search%' AND active=1 ORDER BY accountID ASC;";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $num_rows = $stmt->fetchColumn();
-    if ($num_rows > 0){
+    // $num_rows = $stmt->fetchColumn();
+    // if ($num_rows > 0){
 ?>
         <div>
         <h2>View Users</h2>
@@ -44,6 +44,7 @@ if (isset($_POST['searchButton'])) {
         <?php
         try{
             while($row = $stmt->fetch(PDO::FETCH_ASSOC);){
+                if(isset($row)){
         ?>
         <tr>                
             <td><?php echo $row["accountID"]?></td>
@@ -53,7 +54,10 @@ if (isset($_POST['searchButton'])) {
             <td><a href="deleteUser.php?id=<?php echo $row["accountID"];?>">Delete</a></td>
         </tr>
         <?php
-        }//for while loop
+                }else {
+                    echo "No results found";
+                }
+            }//for while loop
         }catch(PDOException $e){
             echo $e;
         }
@@ -63,8 +67,8 @@ if (isset($_POST['searchButton'])) {
         </div>
 <?php
 }//if result
-else {
-	echo "No results found";
-}
+// else {
+// 	echo "No results found";
+// }
 }//if isset
 ?>
