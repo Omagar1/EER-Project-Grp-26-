@@ -14,14 +14,14 @@ require_once "notLoggedIn.php";
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
-        <form action="searchUser.php" method="post">
+<!--         <form action="searchUser.php" method="post">
             <input type="text" name="search">
             Search by:  <select name="column">
                         <option value="accountID">Account ID</option>
                         <option value="emailAddress">Email</option>
                         </select>
                         <input type ="submit" name="searchButton" value="Search">
-        </form>
+        </form> -->
         <div class="container">
         <div>
             <h2>View Users</h2>
