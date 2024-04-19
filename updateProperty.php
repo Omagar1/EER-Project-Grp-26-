@@ -68,6 +68,9 @@ try{
         <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
+
+    <div class="display-container">
+
         <div>
             <h2>Update this property?</h2>
         </div>
@@ -176,6 +179,9 @@ try{
             }?>
             
         </div>
+    
+    </div>
+    
     </body>
     <footer class="footer">
     <p>EERCalc © Group 26 2024</p>
