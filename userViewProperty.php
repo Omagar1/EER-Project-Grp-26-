@@ -36,6 +36,7 @@ $userid = $_SESSION["userID"];
 
             try{    
                 if ($_SESSION["userRole"]=="Tenant"){
+                    include_once("search.php");
                     $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
