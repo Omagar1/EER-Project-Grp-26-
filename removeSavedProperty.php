@@ -8,7 +8,7 @@ require("dbConnect.php");
 $userid = $_SESSION["userID"];
 try{
     if (isset($_POST['unsave'])) {
-        $sql = "DELETE FROM userSavedProperty WHERE userID=:uid propertyID = :pid";
+        $sql = "DELETE FROM userSavedProperty WHERE userID=:uid AND propertyID = :pid";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':uid', $userid, PDO::PARAM_INT);
         $stmt->bindParam(':pid', $_GET['pid'], PDO::PARAM_INT);
