@@ -14,6 +14,7 @@ try{
         $stmt->bindParam(':pid', $_GET['pid'], PDO::PARAM_INT);
         $stmt->execute();
     }
+    header("location: viewSavedProperty.php");
 }catch(PDOException $e){
     echo $e;
 }
