@@ -5,7 +5,6 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 require("dbConnect.php");
-include_once("navBar.php");
 //include_once("search.php");
 require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
@@ -52,6 +51,7 @@ $userid = $_SESSION["userID"];
         <title>View Properties</title>
         <link rel="stylesheet" href="styles.css"/>
     </head>
+    <?php include_once("navBar.php");?>
     <body>
             <?php
 
