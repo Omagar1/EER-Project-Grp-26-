@@ -36,11 +36,10 @@ if ($_SESSION['userRole']== 'Tenant'){
                 </div>
 <?php
             }//if isset
+            else {
+                echo "No results found";
+            }
         }//for while
-        
-        else {
-	        echo "No results found";
-        }
     }//if isset
 }//if session
 elseif ($_SESSION['userRole']== 'Landlord'){
@@ -63,10 +62,10 @@ elseif ($_SESSION['userRole']== 'Landlord'){
                 </div>
 <?php
             }//if isset
+            else {
+                echo "No results found";
+            }
         }//for while
-        else {
-            echo "No results found";
-        }
     }//if isset
 }//first elseif session
 elseif ($_SESSION['userRole']== 'Admin'){
