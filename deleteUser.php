@@ -33,7 +33,7 @@ try{
         </div>
         <form method="post">
             <input type="submit" value="Delete" name="delete">
-            <a href="manageUser.php">Back</a>
+            <a href="<?php ($_SESSION["role"] == "Admin")? "manageUser.php" : "manageAccount.php"?> manageUser.php">Back</a>
         </form>
     </body>
 </html>
