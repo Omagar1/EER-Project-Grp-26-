@@ -6,25 +6,25 @@ function ratingTocolour($eerInput){
 
     switch($eerInput){
         case "A":
-            $ratingColour = "view-0ab654-container";
+            $ratingColour = "A";
             return $ratingColour;
         case "B":
-            $ratingColour = "view-f0ee07-container";
+            $ratingColour = "B";
             return $ratingColour;
         case "C":
-            $ratingColour = "view-f7911a-container";
+            $ratingColour = "C";
             return $ratingColour;
         case "D":
-            $ratingColour = "view-ca7b1e-container";
+            $ratingColour = "D";
             return $ratingColour;
         case "E":
-            $ratingColour = "view-ca4d1e-container";
+            $ratingColour = "E";
             return $ratingColour;
         case "F":
-            $ratingColour = "view-ca1e1e-container";
+            $ratingColour = "F";
             return $ratingColour;
         case "G":
-            $ratingColour = "view-c60909-container";
+            $ratingColour = "G";
             return $ratingColour;
         default:
             $ratingColour = "display-container";

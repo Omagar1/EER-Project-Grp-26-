@@ -21,7 +21,7 @@ try{
             $_POST['address']= trim($_POST['address']);
 
             //validation passed 
-            $stmt = "UPDATE property SET ownerID=:oid ,propertyType=:propertyType ,postcode=:postcode ,address=:address, addressChanged=:currentDate , addressChangedBy=:currentUser ,reportIssueDate=:rdate WHERE propertyID = :pid";
+            $stmt = "UPDATE property SET ownerID=:oid ,propertyType=:propertyType ,postcode=:postcode ,address=:address, addressChanged=:currentDate , addressChangedBy=:currentUser WHERE propertyID = :pid";
             $sql = $conn->prepare($stmt);
             $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
             $sql->bindParam(':oid', $_POST['oid'], PDO::PARAM_INT);

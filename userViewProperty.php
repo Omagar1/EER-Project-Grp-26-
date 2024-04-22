@@ -5,7 +5,6 @@ session_start([
     'gc_maxlifetime' => 3600, 
    ]);
 require("dbConnect.php");
-//include_once("search.php");
 require_once "notLoggedIn.php";
 $userid = $_SESSION["userID"];
 ?>
@@ -36,12 +35,13 @@ $userid = $_SESSION["userID"];
 
             try{    
                 if ($_SESSION["userRole"]=="Tenant"){
+                    //include_once("search.php");
                     $sql ="Select propertyID,propertyType,EER,postcode,address FROM property ORDER BY propertyID ASC;";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                     ?>
-                <div class="<?php echo ratingTocolour($row["EER"])?>">
+                <div class="property-container" eer-rating="<?php echo ratingTocolour($row["EER"])?>">
                         <div>
                             Property Type: <?php echo $row["propertyType"]?><br>
                             Energy efficiency rating: <?php echo $row["EER"]?><br>
@@ -68,7 +68,7 @@ $userid = $_SESSION["userID"];
                         while($row= $stmt->fetch(PDO::FETCH_ASSOC)){
                             if (isset($row)){                            
                         ?>
-                        <div class="<?php echo ratingTocolour($row["EER"])?>">
+                        <div class="property-container" eer-rating="<?php echo ratingTocolour($row["EER"])?>">
                             <div>
                                 Property Type: <?php echo $row["propertyType"]?><br>
                                 Energy efficiency rating: <?php echo $row["EER"]?><br>
