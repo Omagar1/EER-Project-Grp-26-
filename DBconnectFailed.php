@@ -1,7 +1,7 @@
 <?php
 ob_start();
 session_start();
-//require_once "dbConnect.php";
+
 require_once "loginValidation.php";
 
 $msg = "";
