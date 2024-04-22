@@ -206,31 +206,31 @@ select {
   margin-top: 180px;
 }
 
-.property-container[data-rating="A"] {
+.property-container[eer-rating="A"] {
   background: #0ab654;
 }
 
-.property-container[data-rating="B"] {
+.property-container[eer-rating="B"] {
   background: #f0ee07;
 }
 
-.property-container[data-rating="C"] {
+.property-container[eer-rating="C"] {
   background: #f7911a;
 }
 
-.property-container[data-rating="D"] {
+.property-container[eer-rating="D"] {
   background: #ca7b1e;
 }
 
-.property-container[data-rating="E"] {
+.property-container[eer-rating="E"] {
   background: #ca4d1e;
 }
 
-.property-container[data-rating="F"] {
+.property-container[eer-rating="F"] {
   background: #ca1e1e;
 }
 
-.property-container[data-rating="G"] {
+.property-container[eer-rating="G"] {
   background: #c60909;
 }
 
