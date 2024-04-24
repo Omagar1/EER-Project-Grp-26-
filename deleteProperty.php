@@ -7,10 +7,16 @@ session_start([
 require("dbConnect.php");
 try{
     if (isset($_POST['delete'])) {
-        $stmt = "DELETE FROM property WHERE propertyID = :pid";
-        $sql = $conn->prepare($stmt);
-        $sql->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
-        $sql->execute();
+        //removing from userSavedProperty first so foreign keys dont get messed up
+        $stmt1 = "DELETE FROM userSavedProperty WHERE propertyID = :pid";
+        $sql1 = $conn->prepare($stmt1);
+        $sql1->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
+        $sql1->execute();
+
+        $stmt2 = "DELETE FROM property WHERE propertyID = :pid";
+        $sql2 = $conn->prepare($stmt2);
+        $sql2->bindParam(':pid', $_GET['id'], PDO::PARAM_INT);
+        $sql2->execute();
         echo "Deleted successfully.";
     }
 }catch(PDOException $e){
