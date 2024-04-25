@@ -33,7 +33,7 @@ require_once "notLoggedIn.php";
                 <?php break;
             case "Landlord":?>
                 <li><a href="Property.php">Add New Property</a></li>
-                <li><a href="manageProperty.php">Manage Properties</a></li>
+                <li><a href="userViewProperty.php">Manage Properties</a></li>
                 <?php break; 
             case "Tenant":?>
                 <li><a href="userViewProperty.php">Search Properties</a></li>

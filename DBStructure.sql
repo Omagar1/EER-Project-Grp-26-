@@ -24,7 +24,7 @@ CREATE TABLE property (
     reportIssueDate DATE NOT NULL
 );
 
-DROP TABLE IF EXISTS z;
+DROP TABLE IF EXISTS userSavedProperty;
 CREATE TABLE userSavedProperty (
     ID INTEGER PRIMARY KEY IDENTITY(1,1),
     userID INTEGER FOREIGN KEY REFERENCES account(accountID) ON DELETE CASCADE, 
